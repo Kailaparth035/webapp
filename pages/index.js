@@ -1,23 +1,56 @@
 import Head from "next/head";
-import React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import styles from "../styles/index.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import options from "../CountryCodes.json";
+import Select from "react-select";
+import { useRouter } from "next/router";
+// import countryList from "react-select-country-list";
+import CountryCode from "../CountryCodes.json";
 
 const index = () => {
   const [selectField, setSelectField] = useState("Login");
   const [reminder, setReminder] = useState(false);
   const [loginWithOtp, setLoginWithOtp] = useState(false);
   const [signInCheckBox, setSignInCheckBox] = useState(false);
+  const [value, setValue] = useState("");
+
+  // const options = useMemo(() => countryList().getData(), []);
+  // console.log("options ::", options);
+
+  // useEffect(() => {
+  //   let temp = [];
+  //   CountryCode.map((mapItem) => {
+  //     temp.push({
+  //       value: mapItem.label + mapItem.code,
+  //       label: mapItem.label + mapItem.code,
+  //     });
+  //   });
+  //   console.log("temp ::", temp);
+  // }, []);
+
   const select_field = (key) => {
     // alert(key);
     setSelectField(key);
   };
+  const changeHandler = (value) => {
+    console.log(value);
+    setValue(value.name);
+  };
+
+  const router = useRouter();
   return (
     <>
       <Head>
         <title>Login</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <div className="row" style={{ padding: 10 }}>
         <div className="col-2"></div>
@@ -27,24 +60,45 @@ const index = () => {
         </div>
       </div>
 
-      <hr />
+      <hr className={styles.border_hr}/>
       <div className="row">
         <div className="col-1"></div>
         <div className="col-5">
-          <button
-            className={`${styles.header_login_text} `}
-            onClick={() => select_field("Login")}
-          >
-            Logins
-          </button>
+          <div className="text_color">
+            <Link
+              href={"/"}
+              className={`${styles.header_login_text} `}
+              onClick={() => select_field("Login")}
+              style={{ textDecoration: "none" }}
+            >
+              {selectField === "Login" ? (
+                <span className={styles.selected_text}>Login</span>
+              ) : (
+                <span className={styles.unselected_text}>Login</span>
+              )}
+            </Link>
+            <style jsx>{`
+              .text_color {
+              }
+              Link {
+                color: "red";
+              }
+            `}</style>
+          </div>
         </div>
         <div className="col-5">
-          <button
+          <Link
+            href={"/"}
             className={styles.header_signup_text}
             onClick={() => select_field("Sign_Up")}
+            style={{ textDecoration: "none" }}
           >
-            Sign Up
-          </button>
+            {selectField === "Sign_Up" ? (
+              <span className={styles.selected_text}> Sign Up</span>
+            ) : (
+              <span className={styles.unselected_text}> Sign Up</span>
+            )}
+          </Link>
         </div>
         <div className="col-1"></div>
       </div>
@@ -57,7 +111,7 @@ const index = () => {
       </div>
       <div className="row">
         <div className="col-2"></div>
-        <div className="col-4">
+        <div className="col-4" style={{ alignSelf: "flex-end" }}>
           {selectField === "Login" ? (
             <Image
               src={require("../assets/Images/Good_doggy_pana.png")}
@@ -84,7 +138,7 @@ const index = () => {
                   />
                 </div>
                 <div className="row">
-                  <span className={styles.inpute_title_mobile}>Password</span>
+                  <span className={styles.inpute_title_pass}>Password</span>
                   <input
                     placeholder="Password"
                     className={styles.inpute_email}
@@ -110,9 +164,15 @@ const index = () => {
                     </div>
                   </div>
                   <div className="col-5">
-                    <button className={styles.forget_password_text}>
-                      Forget Password?
-                    </button>
+                    <div className={styles.forget_password_dive}>
+                      <Link
+                        href={"/"}
+                        className={styles.forget_password_text}
+                        onClick={() => alert("Forget Password?")}
+                      >
+                        Forget Password?
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="row">
@@ -136,7 +196,12 @@ const index = () => {
                   </div>
                 </div>
                 <div className="row">
-                  <button className={styles.login_button}>Login</button>
+                  <button
+                    className={styles.login_button}
+                    onClick={() => router.push("/Home")}
+                  >
+                    Login
+                  </button>
                 </div>
               </>
             ) : (
@@ -149,59 +214,75 @@ const index = () => {
                   />
                 </div>
                 <div className="row">
-                  <span className={styles.inpute_title_mobile}>
+                  <span className={styles.inpute_title_pass}>
                     Mobile Number
                   </span>
                   <div className="row">
-                    <div className="col-3">
-                      <input
+                    <div className="col-4">
+                      {/* <div> */}
+                      <Select
+                        options={CountryCode}
+                        value={value}
+                        onChange={changeHandler}
+                        className={styles.dropdown}
                         placeholder="+91(In)"
-                        className={styles.countrycode_ipute}
                       />
+                      {/* <Link
+                          href={"/"}
+                          style={{ textDecoration: "none" }}
+                          className={styles.countrycode_ipute}
+                        >
+                          +91(In)
+                        </Link> */}
+                      {/* </div> */}
                     </div>
-                    <div className="col-9">
-                      <input
-                        placeholder="Mobile Number"
-                        className={styles.mobile_number_inpute}
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <span className={styles.inpute_title_mobile}>
-                      Full Name
-                    </span>
-                    <input
-                      placeholder="Full Name"
-                      className={styles.inpute_email}
-                    />
-                  </div>
-                  <div className="row">
-                    <div className="col-1">
-                      <button
-                        className={styles.check_box}
-                        onClick={() => setSignInCheckBox(!signInCheckBox)}
-                      >
-                        {" "}
-                        {signInCheckBox ? (
-                          <Image
-                            src={require("../assets/Images/Check.png")}
-                            className={styles.check_box_image}
-                          />
-                        ) : null}
-                      </button>
-                    </div>
-                    <div className="col-11">
-                      <div className={styles.check_box_text}>
-                        <span>
-                          Receive relevant offers promotional communication from
-                          Floofable By singing up, I agree to terms.
-                        </span>
+                    <div className="col-8">
+                      <div className="row">
+                        {/* <input
+                          placeholder="Mobile Number"
+                          className={styles.mobile_number_inpute}
+                        /> */}
+                        <input
+                          placeholder="Full Name"
+                          className={styles.inpute_email}
+                        />
                       </div>
                     </div>
                   </div>
-                  <div className="row">
-                    <button className={styles.login_button}>Sign Up</button>
+                </div>
+                <div className="row">
+                  <span className={styles.inpute_title_pass}>Full Name</span>
+                  <input
+                    placeholder="Full Name"
+                    className={styles.inpute_email}
+                  />
+                </div>
+                <div className="row">
+                  <div className="col-1">
+                    <button
+                      className={styles.check_box}
+                      onClick={() => setSignInCheckBox(!signInCheckBox)}
+                    >
+                      {" "}
+                      {signInCheckBox ? (
+                        <Image
+                          src={require("../assets/Images/Check.png")}
+                          className={styles.check_box_image}
+                        />
+                      ) : null}
+                    </button>
                   </div>
+                  <div className="col-11">
+                    <div className={styles.check_box_text}>
+                      <span>
+                        Receive relevant offers promotional communication from
+                        Floofable By singing up, I agree to terms.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <button className={styles.login_button}>Sign Up</button>
                 </div>
               </>
             )}

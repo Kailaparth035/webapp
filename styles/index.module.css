@@ -1,33 +1,53 @@
 .header_login_text {
   border-width: 0;
   float: right;
-  background-color: #fafafa;
+  font-family: "Montserrat";
+
+  /* background-color: #f5f5f5; */
+  /* color: #ffc107;
+  font-weight: 600;
+  font-size: 18px; */
+}
+
+.selected_text {
   color: #ffc107;
   font-weight: 600;
   font-size: 18px;
+  font-family: "Montserrat";
 }
 
-.header_signup_text {
-  border-width: 0;
-  background-color: #fafafa;
-  float: left;
+.unselected_text {
   font-weight: 600;
   font-size: 18px;
   color: #000000;
   opacity: 0.5;
+  font-family: "Montserrat";
+}
+
+.header_signup_text {
+  border-width: 0;
+  float: left;
+  font-family: "Montserrat";
+
+  /* font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+  opacity: 0.5; */
+  /* display: inline-block; */
 }
 .image_div {
   float: right;
   margin-top: 70px;
 }
 .inpute_div {
-  margin-top: 70px;
+  margin-top: 50px;
   padding: 30px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 40px;
   padding-top: 40px;
   border-radius: 5px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  font-family: "Montserrat";
 }
 .inpute_title_email {
   /* margin-left: 17px; */
@@ -36,6 +56,20 @@
   color: #000000;
   /* margin-top: 20px; */
   margin-bottom: 12px;
+  padding: 0px;
+  font-family: "Montserrat";
+}
+
+.inpute_title_pass {
+  /* margin-left: 17px; */
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  /* margin-top: 20px; */
+  /* margin-bottom: 12px; */
+  padding: 0px;
+  margin: 20px 0px 12px 0px;
+  font-family: "Montserrat";
 }
 
 .inpute_title_mobile {
@@ -45,15 +79,14 @@
   color: #000000;
   margin-top: 20px;
   margin-bottom: 12px;
+  font-family: "Montserrat";
 }
 .inpute_email {
-  width: 430px;
-  /* margin-right: 100px; */
-  margin-left: 10px;
   padding: 13px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+  font-family: "Montserrat";
 }
 
 /* / check box / */
@@ -77,34 +110,59 @@
   padding-top: 15px;
   text-align: left;
   font-weight: 500;
-  margin-left: -20px;
+  font-family: "Montserrat";
+
+  /* margin-left: -20px; */
 }
 
 .forget_password_text {
-  padding-top: 15px;
-  text-align: left;
+  /* padding-top: 50px; */
+  /* text-align: left; */
   font-weight: 500;
   color: #ffc107;
   border-radius: 0px;
-  border: 0;
-  background-color: #f5f5f5;
+  float: right;
+  font-family: "Montserrat";
+}
+
+.forget_password_dive {
+  margin-top: 15px;
 }
 
 /* / sign up pages style / */
 
-.countrycode_ipute {
+/* .countrycode_ipute {
   width: 100px;
-  padding: 13px;
+  padding: 14px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+  font-family: "Montserrat";
+
+} */
+.country_div {
+  margin-top: 14px;
+  width: 50px;
+  padding: 0px;
+  margin-left: -10px;
 }
 .mobile_number_inpute {
-  width: 310px;
+  /* width: 350px; */
+  width: "100%";
   padding: 13px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+  font-family: "Montserrat";
+}
+
+.dropdown {
+  /* width: 110px; */
+  height: 40px;
+  padding: 10px 0px 0px 0px;
+  border-radius: 5px;
+  /* border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16); */
 }
 
 .login_button {
@@ -116,6 +174,12 @@
   color: #f5f5f5;
   font-weight: 500;
   font-size: 20px;
+  font-family: "Montserrat";
+}
+
+.border_hr {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 600px) {
