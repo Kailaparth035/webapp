@@ -52,16 +52,56 @@ const index = () => {
           rel="stylesheet"
         />
       </Head>
-      <div className="row" style={{ padding: 10 }}>
-        <div className="col-2"></div>
+      <div className={styles.header_div_shadow}>
+        <div className="row" style={{ padding: 10, paddingBottom: 20 }}>
+          <div className="col-2"></div>
 
-        <div className="col-2">
-          <Image src={require("../assets/Images/Header_Logo.png")} />
+          <div className="col-2">
+            <div>
+              <Image src={require("../assets/Images/Header_Logo.png")} />
+            </div>
+          </div>
         </div>
       </div>
-
-      <hr className={styles.border_hr}/>
       <div className="row">
+        <div className="col-1"></div>
+        <div className="col-10">
+          <div className={styles.login_button_main_div}>
+            <div className="row">
+              <div className="col-6">
+                <Link
+                  href={"/"}
+                  className={styles.header_login_text}
+                  onClick={() => select_field("Login")}
+                  style={{ textDecoration: "none" }}
+                >
+                  {selectField === "Login" ? (
+                    <span className={styles.selected_text}>Login</span>
+                  ) : (
+                    <span className={styles.unselected_text}>Login</span>
+                  )}
+                </Link>
+              </div>
+              <div className="col-6">
+                <Link
+                  href={"/"}
+                  className={styles.header_signup_text}
+                  onClick={() => select_field("Sign_Up")}
+                  style={{ textDecoration: "none" }}
+                >
+                  {selectField === "Sign_Up" ? (
+                    <span className={styles.selected_text}> Sign Up</span>
+                  ) : (
+                    <span className={styles.unselected_text}> Sign Up</span>
+                  )}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-1"></div>
+      </div>
+      {/* <div className="row">
         <div className="col-1"></div>
         <div className="col-5">
           <div className="text_color">
@@ -77,13 +117,6 @@ const index = () => {
                 <span className={styles.unselected_text}>Login</span>
               )}
             </Link>
-            <style jsx>{`
-              .text_color {
-              }
-              Link {
-                color: "red";
-              }
-            `}</style>
           </div>
         </div>
         <div className="col-5">
@@ -101,17 +134,23 @@ const index = () => {
           </Link>
         </div>
         <div className="col-1"></div>
-      </div>
-      <div className="row">
+      </div> */}
+      {/* <div className="row">
         <div className="col-2"></div>
         <div className="col-8">
           <hr />
         </div>
         <div className="col-2"></div>
-      </div>
+      </div> */}
       <div className="row">
         <div className="col-2"></div>
-        <div className="col-4" style={{ alignSelf: "flex-end" }}>
+        <div
+          className="col-4"
+          style={{
+            alignSelf: selectField === "Login" ? "flex-end" : "center",
+            justifyContent: "center",
+          }}
+        >
           {selectField === "Login" ? (
             <Image
               src={require("../assets/Images/Good_doggy_pana.png")}
@@ -120,7 +159,7 @@ const index = () => {
           ) : (
             <Image
               src={require("../assets/Images/Dog_poop_amico.png")}
-              className={styles.image_div}
+              className={styles.signUp_imag}
             />
           )}
         </div>

@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Header from "../component/Header";
 import styles from "../styles/home.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import {
   title_here,
   health_concern,
   loripipsome_array,
+  slider_paragraph,
 } from "../Constant/Array";
+import Link from "next/link";
 
 const Home = () => {
+  const router = useRouter();
+  const [currentSliderval, setCurrentSliderval] = useState(0);
+
+  const setCurrentSlider = (index, key) => {
+    console.log("index::", index);
+    console.log("currentSliderval::", currentSliderval);
+    // let current_val;
+    // alert(index);
+    if (key === "Next") {
+      if (index < slider_paragraph.length - 1) {
+        setCurrentSliderval(currentSliderval + 1);
+      } else {
+        setCurrentSlider(index);
+      }
+    } else if (key === "Previous") {
+      if (index > 0) {
+        setCurrentSliderval(currentSliderval - 1);
+      } else {
+        setCurrentSlider(index);
+      }
+    }
+  };
   return (
     <>
       <Head>
@@ -28,7 +53,6 @@ const Home = () => {
           rel="stylesheet"
         />
       </Head>
-
       <Header />
       <div
         className="row"
@@ -68,9 +92,7 @@ const Home = () => {
         </div>
         <div className="col-1"></div>
       </div>
-
       {/* health_consult first array */}
-
       <div className="row" style={{ marginLeft: -20 }}>
         <div className="col-1"></div>
         <div className="col-10">
@@ -101,9 +123,7 @@ const Home = () => {
         </div>
         <div className="col-1"></div>
       </div>
-
       {/* health_consult view all div */}
-
       <div className="row" style={{ marginTop: 50 }}>
         <div className="col-1"></div>
         <div className="col-7">
@@ -118,14 +138,16 @@ const Home = () => {
         </div>
         <div className="col-3">
           <div className="row">
-            <button className={styles.view_all_button}>
+            <button
+              className={styles.view_all_button}
+              onClick={() => router.push("/Product")}
+            >
               <span className={styles.view_all_text}>View All</span>
             </button>
           </div>
         </div>
         <div className="col-1"></div>
       </div>
-
       {/* health_consult array second loop */}
       <div className="row" style={{ marginLeft: -20 }}>
         <div className="col-1"></div>
@@ -171,7 +193,6 @@ const Home = () => {
         </div>
         <div className="col-1"></div>
       </div>
-
       {/* health_consult simple text */}
       <div className="row" style={{ marginTop: 70 }}>
         <div className="col-1"></div>
@@ -188,9 +209,7 @@ const Home = () => {
         <div className="col-3"></div>
         <div className="col-1"></div>
       </div>
-
       {/* Lorepipsum dummy text div */}
-
       <div className="row" style={{ marginTop: 40 }}>
         <div className="col-1"></div>
         <div className="col-10">
@@ -237,9 +256,7 @@ const Home = () => {
         </div>
         <div className="col-1"></div>
       </div>
-
       {/* top artical read div */}
-
       <div className="row" style={{ marginLeft: -20, marginTop: 50 }}>
         <div className="col-1"></div>
 
@@ -280,15 +297,85 @@ const Home = () => {
         </div>
         <div className="col-1"></div>
       </div>
-
-      <div className="row">
+      {/* slider div */}
+      <div className="row" style={{ paddingBottom: 40 }}>
         <span className={styles.oneline_text}>What our users have to say</span>
+      </div>
+      {slider_paragraph.map((item, index) => {
+        return (
+          <>
+            {index === currentSliderval ? (
+              <div className="row">
+                <div className="col-3">
+                  <button
+                    onClick={() => setCurrentSlider(index, "Previous")}
+                    style={{
+                      float: "right",
+                      mixBlendMode: "multiply",
+                      backgroundColor: "white",
+                      borderWidth: 0,
+                    }}
+                  >
+                    <Image
+                      src={require("../assets/Images/LeftArrow.png")}
+                      style={{ marginRight: 200, marginTop: 20 }}
+                    />
+                  </button>
+                </div>
+                <div className="col-6">
+                  <span className={styles.multiline_text}>
+                    {item.paragraph}
+                    {/* “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Quis neque a ornare nunc. Interdum ipsum volutpat augue sed
+                    et. Quis id elit sed aenean adipiscing blandit elit.” */}
+                  </span>
+                </div>
 
-        <span className={styles.multiline_text}>
-          “ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis neque
-          a ornare nunc. Interdum ipsum volutpat augue sed et. Quis id elit sed
-          aenean adipiscing blandit elit.”
-        </span>
+                <div className="col-3">
+                  <button
+                    onClick={() => setCurrentSlider(index, "Next")}
+                    style={{
+                      mixBlendMode: "multiply",
+                      backgroundColor: "white",
+                      borderWidth: 0,
+                    }}
+                  >
+                    <Image
+                      src={require("../assets/Images/RightArrow.png")}
+                      style={{ marginLeft: 200, marginTop: 10 }}
+                    />
+                  </button>
+                </div>
+              </div>
+            ) : null}
+          </>
+        );
+      })}
+      <div className="row">
+        <div className="col-4"></div>
+        <div className="col-4">
+          <div className="row" style={{ justifyContent: "center" }}>
+            {slider_paragraph.map((item, index) => {
+              return (
+                <button
+                  className={styles.slider_circle_button}
+                  style={{
+                    mixBlendMode: "multiply",
+                    backgroundColor:
+                      index === currentSliderval ? "#D9D9D9" : "white",
+                    display: "flex",
+                    // opacity:0.7
+                  }}
+                  onClick={() => setCurrentSliderval(index)}
+                ></button>
+              );
+            })}
+          </div>
+        </div>
+        <div className="col-4"></div>
+      </div>
+      ;
+      <div className="row">
         <span className={styles.oneline_text}>John Doe</span>
       </div>
       <div
@@ -301,10 +388,19 @@ const Home = () => {
         }}
       >
         <div className="col-5">
+          {/* <div className={styles.phone_image}> */}
           <Image
             src={require("../assets/Images/Phone_image.png")}
-            style={{ width: 350, height: 300, float: "right", marginRight: 50 }}
+            className={styles.phone_image}
+            style={{
+              width: 350,
+              height: 300,
+              float: "right",
+              marginRight: 50,
+              mixBlendMode: "multiply",
+            }}
           />
+          {/* </div> */}
         </div>
         <div className="col-7">
           <span className={styles.download_text}>Download the Practo app</span>

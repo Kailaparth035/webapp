@@ -1,0 +1,47 @@
+/* first div style */
+.title_here_text {
+  font-weight: 600;
+  font-size: 28px;
+  font-family: "Montserrat";
+  color: #000000;
+}
+
+.subtitle_text {
+  font-weight: 500;
+  font-size: 15px;
+  font-family: "Montserrat";
+  color: #000000;
+  opacity: 0.5;
+}
+
+/* second div style  */
+
+.browser_text {
+  font-weight: 600;
+  font-size: 28px;
+  font-family: "Montserrat";
+  font-family: "Montserrat";
+}
+
+.outerItem_title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+  font-family: "Montserrat";
+  opacity: 0.5;
+}
+
+.image_product {
+  object-fit: cover;
+  height: 200px;
+  width: 300px;
+  border-radius: 4px; 
+}
+
+.backgroundimage_div {
+  height: 200px;
+  width: 300px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  border-radius: 4px;   
+  position: relative;
+}

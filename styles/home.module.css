@@ -135,7 +135,7 @@
   font-weight: 500;
   font-size: 15px;
   /* padding: 15px; */
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .loripipsome_subtitle_text {
@@ -145,8 +145,7 @@
   /* padding: 15px; */
   font-family: "Montserrat";
   opacity: 0.5;
-  font-family: 'Inter', sans-serif;
-
+  font-family: "Inter", sans-serif;
 }
 
 /* expert div style */
@@ -154,8 +153,7 @@
   font-weight: 500;
   font-size: 27px;
   color: #000000;
-  font-family: 'Inter', sans-serif;
-
+  font-family: "Inter", sans-serif;
 }
 
 .expert_paragraph_text {
@@ -163,8 +161,7 @@
   font-size: 18px;
   color: #000000;
   opacity: 0.5;
-  font-family: 'Inter', sans-serif;
-
+  font-family: "Inter", sans-serif;
 }
 
 .expert_viewall_button {
@@ -181,35 +178,31 @@
   color: #000000;
   text-align: center;
   margin-top: 20px;
-  font-family: 'Inter', sans-serif;
-
+  font-family: "Inter", sans-serif;
 }
 .multiline_text {
   font-weight: 500;
   font-size: 20px;
   color: #000000;
   opacity: 0.5;
-  text-align: center;
-  align-self: center;
-  padding: 10px 500px 10px 500px;
-  font-family: 'Inter', sans-serif;
-
+  text-align: justify;
+  /* align-self: center; */
+  /* padding: 0px 10px 0px 10px; */
+  font-family: "Inter", sans-serif;
 }
 
 .download_text {
   font-weight: 600;
   font-size: 20px;
   color: #000000;
-  font-family: 'Inter', sans-serif;
-
+  font-family: "Inter", sans-serif;
 }
 
 .comprehensive_information_text {
   font-weight: 500;
   font-size: 12px;
   color: #000000;
-  font-family: 'Inter', sans-serif;
-
+  font-family: "Inter", sans-serif;
 }
 
 .footer_paragraph_text {
@@ -220,4 +213,13 @@
   line-height: -10;
   margin: 10px 0px 0px 0px;
   font-family: "Inter", sans-serif;
+}
+
+.slider_circle_button {
+  height: 25px;
+  width: 10px;
+  border: 1px solid #d9d9d9;
+  margin: 10px 10px 10px 10px;
+  border-radius: 50px;
+  background-color: #d9d9d9;
 }

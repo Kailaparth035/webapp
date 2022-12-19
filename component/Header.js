@@ -12,7 +12,7 @@ const Header = () => {
           rel="stylesheet"
         />
       </Head>
-      <div className="row" style={{ paddingTop: 10, paddingBottom: 20 }}>
+      <div className="row" style={{ paddingTop: 10, paddingBottom: 40 }}>
         <div className="col-2"></div>
         <div className="col-1">
           <Image
