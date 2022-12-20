@@ -28,7 +28,10 @@ const Header = () => {
           <div className="row">
             <div className="col-6">
               <div className="row">
-                <div className={styles.inpute_box_div}>
+                <div
+                  className={styles.inpute_box_div}
+                  style={{ display: "block" }}
+                >
                   <Image
                     src={require("../assets/Images/Search.png")}
                     className={styles.searchbar_img}

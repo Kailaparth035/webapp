@@ -11,6 +11,7 @@ import {
   slider_paragraph,
 } from "../Constant/Array";
 import Link from "next/link";
+import FooterDiv from "../component/FooterDiv";
 
 const Home = () => {
   const router = useRouter();
@@ -378,50 +379,7 @@ const Home = () => {
       <div className="row">
         <span className={styles.oneline_text}>John Doe</span>
       </div>
-      <div
-        className="row"
-        style={{
-          margin: 60,
-          background: "#EFEFEF",
-          borderRadius: 12,
-          paddingTop: 60,
-        }}
-      >
-        <div className="col-5">
-          {/* <div className={styles.phone_image}> */}
-          <Image
-            src={require("../assets/Images/Phone_image.png")}
-            className={styles.phone_image}
-            style={{
-              width: 350,
-              height: 300,
-              float: "right",
-              marginRight: 50,
-              mixBlendMode: "multiply",
-            }}
-          />
-          {/* </div> */}
-        </div>
-        <div className="col-7">
-          <span className={styles.download_text}>Download the Practo app</span>
-          <br />
-          <span className={styles.comprehensive_information_text}>
-            COMPREHENSIVE INFORMATION
-          </span>
-          <br />
-          <div style={{ paddingTop: 20 }}>
-            <p className={styles.footer_paragraph_text}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
-              neque
-              <br />
-              a ornare nunc. Interdum ipsum volutpat augue sed et. Quis id elit
-              <br />
-              sed aenean adipiscing blandit elit. Sed a dictumst elit aliquam
-              leo est.
-            </p>
-          </div>
-        </div>
-      </div>
+      <FooterDiv />
     </>
   );
 };

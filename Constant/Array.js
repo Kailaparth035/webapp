@@ -166,27 +166,31 @@ export const browser_pet_product = [
     ],
   },
   {
-    name: "Title Here",
+    name: "Popular Product",
     sub_array: [
       {
         name: "Title Here",
         subtitle: "Subtitle",
         img: require("../assets/Images/Popular_Product/PopularProduct1.png"),
+        price: "$105.00",
       },
       {
         name: "Title Here",
         subtitle: "Subtitle",
         img: require("../assets/Images/Popular_Product/PopularProduct2.png"),
+        price: "$360",
       },
       {
         name: "Title Here",
         subtitle: "Subtitle",
         img: require("../assets/Images/Popular_Product/PopularProduct3.png"),
+        price: "$321",
       },
       {
         name: "Title Here",
         subtitle: "Subtitle",
         img: require("../assets/Images/Popular_Product/PopularProduct4.png"),
+        price: "$423",
       },
     ],
   },

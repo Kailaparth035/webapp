@@ -191,7 +191,7 @@
   font-family: "Inter", sans-serif;
 }
 
-.download_text {
+/* .download_text {
   font-weight: 600;
   font-size: 20px;
   color: #000000;
@@ -203,18 +203,17 @@
   font-size: 12px;
   color: #000000;
   font-family: "Inter", sans-serif;
-}
-
+} */
+/* 
 .footer_paragraph_text {
   font-weight: 500;
   font-size: 12px;
   /* padding-top: 20px; */
-  color: #000000;
+/* color: #000000;
   line-height: -10;
   margin: 10px 0px 0px 0px;
   font-family: "Inter", sans-serif;
-}
-
+} */
 .slider_circle_button {
   height: 25px;
   width: 10px;

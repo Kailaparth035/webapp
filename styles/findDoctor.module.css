@@ -1,0 +1,42 @@
+.top_div {
+  background: linear-gradient(266.31deg, #ffc107 1.1%, #ffa8a7 100%);
+  padding: 40px 0px 40px 0px;
+}
+.h1_top_text {
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 32.9724px;
+  color: #000000;
+}
+
+.find_book_text {
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  font-family: "Montserrat";
+  color: #000000;
+}
+
+.location_button {
+  padding: 8px 60px 8px 60px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px 0px 0px 4px;
+  background-color: #ffffff;
+}
+
+.seaech_Image {
+  background-color: #ffffff;
+}
+.search_div {
+  padding: 8px 10px 8px 10px;
+  background-color: #ffffff;
+}
+
+.search_inpute {
+  padding: 8px 10px 8px 10px;
+  background-color: #ffffff;
+  border-width: 0px;
+  border-radius: 0px 4px 4px 0px;
+  width: 400px;
+}
