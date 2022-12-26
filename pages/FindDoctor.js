@@ -62,8 +62,11 @@ const FindDoctor = () => {
         className="row"
         style={{ backgroundColor: "#E6E6E6", paddingTop: 50 }}
       >
-        <div className="col-1"></div>
-        <div className="col-5" style={{ marginLeft: 60, marginTop: 60 }}>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div
+          className="col-md-5 col-lg-5 hidden-xs- hidden-sm"
+          style={{ marginLeft: 60, marginTop: 60 }}
+        >
           <div className="row">
             <p className={styles.paragraph_style}>
               Safety of your data is our top priority.
@@ -107,13 +110,13 @@ const FindDoctor = () => {
             </button>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm">
           <Image
             src={require("../assets/Images/Doctore_Image.png")}
             style={{ float: "right", marginRight: 60 }}
           />
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <div
         className="row"
@@ -123,10 +126,10 @@ const FindDoctor = () => {
           paddingBottom: 30,
         }}
       >
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <div className="row">
-            <div className="col-3">
+            <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
               <div className={styles.image_background_div}>
                 <Image
                   src={require("../assets/Images/SafteyData/SafteyData2.png")}
@@ -141,7 +144,7 @@ const FindDoctor = () => {
               <p className={styles.saftey_image_text1}>Title Here</p>
               <p className={styles.saftey_image_text2}>Title Here</p>
             </div>
-            <div className="col-3">
+            <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
               <div className={styles.image_background_div}>
                 <Image
                   src={require("../assets/Images/SafteyData/SafteyData2.png")}
@@ -156,7 +159,7 @@ const FindDoctor = () => {
               <p className={styles.saftey_image_text1}>Title Here</p>
               <p className={styles.saftey_image_text2}>Title Here</p>
             </div>
-            <div className="col-3">
+            <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
               <div className={styles.image_background_div}>
                 <Image
                   src={require("../assets/Images/SafteyData/SafteyData3.png")}
@@ -171,7 +174,7 @@ const FindDoctor = () => {
               <p className={styles.saftey_image_text1}>Title Here</p>
               <p className={styles.saftey_image_text2}>Title Here</p>
             </div>
-            <div className="col-3">
+            <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
               <div className={styles.image_background_div}>
                 <Image
                   src={require("../assets/Images/SafteyData/SafteyData4.png")}
@@ -188,7 +191,7 @@ const FindDoctor = () => {
             </div>
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <FindRightDoctore />
 
@@ -204,56 +207,55 @@ const FindDoctor = () => {
         }}
       >
         <div className="col-1"></div>
-        <div className="col-10">
-          <div className="row">
-            <div
-              className="col-3"
-              style={{
-                backgroundColor: "#FFFFFF",
-                width: 270,
-                height: 94,
-                borderRadius: 14,
-                boxShadow: 10,
-                marginLeft: 70,
-              }}
-            ></div>
-            <div
-              className="col-3"
-              style={{
-                backgroundColor: "#FFFFFF",
-                width: 270,
-                height: 94,
-                borderRadius: 14,
-                boxShadow: 10,
-                marginLeft: 20,
-              }}
-            ></div>
+        {/* <div className="col-10"> */}
+        <div className="row" style={{ display: "flex", flexDirection: "row",marginLeft:200 }}>
+          <div
+            className="col-3"
+            style={{
+              backgroundColor: "#FFFFFF",
+              width: 270,
+              height: 94,
+              borderRadius: 14,
+              boxShadow: 10,
+              marginLeft: 70,
+            }}
+          ></div>
+          <div
+            className="col-3"
+            style={{
+              backgroundColor: "#FFFFFF",
+              width: 270,
+              height: 94,
+              borderRadius: 14,
+              boxShadow: 10,
+              marginLeft: 20,
+            }}
+          ></div>
 
-            <div
-              className="col-3"
-              style={{
-                backgroundColor: "#FFFFFF",
-                width: 270,
-                height: 94,
-                borderRadius: 14,
-                boxShadow: 10,
-                marginLeft: 20,
-              }}
-            ></div>
-
-            <div
-              className="col-3"
-              style={{
-                backgroundColor: "#FFFFFF",
-                width: 270,
-                height: 94,
-                borderRadius: 14,
-                boxShadow: 10,
-                marginLeft: 20,
-              }}
-            ></div>
-          </div>
+          <div
+            className="col-3"
+            style={{
+              backgroundColor: "#FFFFFF",
+              width: 270,
+              height: 94,
+              borderRadius: 14,
+              boxShadow: 10,
+              marginLeft: 20,
+            }}
+          ></div>
+          <div
+            className="col-3"
+            style={{
+              backgroundColor: "#FFFFFF",
+              width: 270,
+              height: 94,
+              borderRadius: 14,
+              boxShadow: 10,
+              marginLeft: 20,
+            }}
+          ></div>
         </div>
+        {/* </div> */}
         <div className="col-1"></div>
       </div>
       <div
@@ -264,8 +266,11 @@ const FindDoctor = () => {
           paddingBottom: 60,
         }}
       >
-        <div className="col-1"></div>
-        <div className="col-5" style={{ marginTop: 70 }}>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div
+          className="col-md-5 col-lg-5 hidden-xs- hidden-sm"
+          style={{ marginTop: 70 }}
+        >
           <Image
             src={require("../assets/Images/Doctore_Pana.png")}
             style={{
@@ -275,7 +280,10 @@ const FindDoctor = () => {
             }}
           />
         </div>
-        <div className="col-4" style={{ marginTop: 60, marginLeft: 20 }}>
+        <div
+          className="col-md-4 col-lg-4 hidden-xs- hidden-sm"
+          style={{ marginTop: 60, marginLeft: 20 }}
+        >
           <div className="row" style={{ float: "left" }}>
             <p className={styles.paragraph_style}>
               Skip the waiting room. Consult with a doctor
@@ -321,7 +329,7 @@ const FindDoctor = () => {
             </button>
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <div
         className="row"
@@ -339,10 +347,10 @@ const FindDoctor = () => {
           paddingBottom: 40,
         }}
       >
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <div className="row">
-            <div className="col-4">
+            <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm">
               <div className={styles.read_articale_div}>
                 <Image
                   src={require("../assets/Images/ReadArticale/Rectangle1.png")}
@@ -354,7 +362,7 @@ const FindDoctor = () => {
                 <span className={styles.read_article_text2}>Title here</span>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm">
               <div className={styles.read_articale_div}>
                 <Image
                   src={require("../assets/Images/ReadArticale/Rectangle2.png")}
@@ -366,8 +374,7 @@ const FindDoctor = () => {
                 <span className={styles.read_article_text2}>Title here</span>
               </div>
             </div>
-            <div className="col-4">
-              {" "}
+            <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm">
               <div className={styles.read_articale_div}>
                 <Image
                   src={require("../assets/Images/ReadArticale/Rectangle3.png")}
@@ -381,7 +388,7 @@ const FindDoctor = () => {
             </div>
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <FindRightDoctore />
       <div style={{ marginTop: 50 }}>
@@ -395,15 +402,15 @@ const FindDoctor = () => {
           backgroundColor: "#FFFFFF",
         }}
       >
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <div className="row">
             <div
-              className="col-6"
+              className="col-md-6 col-lg-6 hidden-xs- hidden-sm"
               style={{
                 display: "flex",
                 alignItems: "flex-end",
-                justifyContent: "center",
+                justifyContent: "center", 
               }}
             >
               <Image
@@ -415,7 +422,7 @@ const FindDoctor = () => {
                 style={{ marginLeft: 30 }}
               />
             </div>
-            <div className="col-6">
+            <div className="col-md-6 col-lg-6 hidden-xs- hidden-sm">
               <div className="row">
                 <p className={styles.health_expert_text1}>
                   Read top articles from health experts
@@ -431,7 +438,7 @@ const FindDoctor = () => {
             </div>
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
     </>
   );
