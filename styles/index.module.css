@@ -1,16 +1,23 @@
+.header_of_login {
+  height: 70px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.header_image_div {
+  padding: 10px 10px 0px 150px;
+}
+
+/* /old css */
 .header_login_text {
   float: right;
   font-family: "Montserrat";
   padding: 10px 0px 10px 0px;
 }
 
-.header_div_shadow {
-  background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12);
-}
-
 .login_button_main_div {
   border-bottom: 1px solid #000000;
+  width: 100vmax;
 }
 
 .selected_text {
@@ -29,21 +36,20 @@
   opacity: 0.5;
   font-family: "Montserrat";
   border-bottom: 1px;
-  /* text-decoration: underline; */
 }
 .header_signup_text {
-  /* border-width: 0; */
   float: left;
   font-family: "Montserrat";
   padding: 10px 0px 10px 0px;
 }
 .image_div {
   float: right;
+  align-self: center;
   margin-top: 70px;
 }
 .signUp_imag {
-  float: right;
-  margin: 70px 70px 0px 0px;
+  /* float: right; */
+  /* margin: 70px 70px 0px 0px; */
   align-self: center;
 }
 .inpute_div {
@@ -162,22 +168,40 @@
   font-family: "Montserrat";
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
+/* / media query /  */
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
+@media only screen and (max-width: 600px) {
+  .image_div {
+    float: none;
+    align-self: center;
+    margin-top: 70px;
+    margin-left: 80px;
   }
-  .code {
-    background: #111;
+
+  .signUp_imag {
+    margin-left: 180px;
   }
-  .logo img {
-    filter: invert(1);
+
+  .header_of_login {
+    height: 60px;
+    width: 100vmax;
+    background: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  .header_image_div {
+    padding: 10px 10px 0px 80px;
+  }
+
+  .inpute_div {
+    margin-top: 50px;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    width: 80vmax;
+    margin-left: 80px;
   }
 }

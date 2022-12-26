@@ -52,79 +52,41 @@ const index = () => {
           rel="stylesheet"
         />
       </Head>
-      <div className={styles.header_div_shadow}>
-        <div className="row" style={{ padding: 10, paddingBottom: 20 }}>
-          <div className="col-2"></div>
+      <header className={styles.header_of_login}>
+        <div className={styles.header_image_div}>
+          <Image src={require("../assets/Images/Header_Logo.png")} />
+        </div>
+      </header>
 
-          <div className="col-2">
-            <div>
-              <Image src={require("../assets/Images/Header_Logo.png")} />
-            </div>
-          </div>
+      <div
+        className={styles.login_button_main_div}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div className="col-md-6 col-ls-6  hidden-xs hidden-sm ">
+          <Link
+            href={"/"}
+            className={styles.header_login_text}
+            onClick={() => select_field("Login")}
+            style={{ textDecoration: "none", marginRight: 20 }}
+          >
+            {selectField === "Login" ? (
+              <span className={styles.selected_text}>Login</span>
+            ) : (
+              <span className={styles.unselected_text}>Login</span>
+            )}
+          </Link>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-1"></div>
-        <div className="col-10">
-          <div className={styles.login_button_main_div}>
-            <div className="row">
-              <div className="col-6">
-                <Link
-                  href={"/"}
-                  className={styles.header_login_text}
-                  onClick={() => select_field("Login")}
-                  style={{ textDecoration: "none" }}
-                >
-                  {selectField === "Login" ? (
-                    <span className={styles.selected_text}>Login</span>
-                  ) : (
-                    <span className={styles.unselected_text}>Login</span>
-                  )}
-                </Link>
-              </div>
-              <div className="col-6">
-                <Link
-                  href={"/"}
-                  className={styles.header_signup_text}
-                  onClick={() => select_field("Sign_Up")}
-                  style={{ textDecoration: "none" }}
-                >
-                  {selectField === "Sign_Up" ? (
-                    <span className={styles.selected_text}> Sign Up</span>
-                  ) : (
-                    <span className={styles.unselected_text}> Sign Up</span>
-                  )}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-1"></div>
-      </div>
-      {/* <div className="row">
-        <div className="col-1"></div>
-        <div className="col-5">
-          <div className="text_color">
-            <Link
-              href={"/"}
-              className={`${styles.header_login_text} `}
-              onClick={() => select_field("Login")}
-              style={{ textDecoration: "none" }}
-            >
-              {selectField === "Login" ? (
-                <span className={styles.selected_text}>Login</span>
-              ) : (
-                <span className={styles.unselected_text}>Login</span>
-              )}
-            </Link>
-          </div>
-        </div>
-        <div className="col-5">
+        <div className="col-md-6 col-ls-6  hidden-xs hidden-sm">
           <Link
             href={"/"}
             className={styles.header_signup_text}
             onClick={() => select_field("Sign_Up")}
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none", marginLeft: 20 }}
           >
             {selectField === "Sign_Up" ? (
               <span className={styles.selected_text}> Sign Up</span>
@@ -133,38 +95,42 @@ const index = () => {
             )}
           </Link>
         </div>
-        <div className="col-1"></div>
-      </div> */}
-      {/* <div className="row">
-        <div className="col-2"></div>
-        <div className="col-8">
-          <hr />
-        </div>
-        <div className="col-2"></div>
-      </div> */}
-      <div className="row">
-        <div className="col-2"></div>
+      </div>
+
+      <div className="row hidden-xs hidden-sm">
+        <div className="col-md-2 col-lg-2 hidden-xs hidden-sm"></div>
         <div
-          className="col-4"
+          className="col-md-4 col-lg-4 hidden-xs hidden-sm"
           style={{
             alignSelf: selectField === "Login" ? "flex-end" : "center",
             justifyContent: "center",
+            marginLeft: 10,
           }}
         >
-          {selectField === "Login" ? (
-            <Image
-              src={require("../assets/Images/Good_doggy_pana.png")}
-              className={styles.image_div}
-            />
-          ) : (
-            <Image
-              src={require("../assets/Images/Dog_poop_amico.png")}
-              className={styles.signUp_imag}
-            />
-          )}
+          <div className={styles.loginpage_images}>
+            {selectField === "Login" ? (
+              <Image
+                src={require("../assets/Images/Good_doggy_pana.png")}
+                className={styles.image_div}
+              />
+            ) : (
+              <Image
+                src={require("../assets/Images/Dog_poop_amico.png")}
+                className={styles.signUp_imag}
+              />
+            )}
+          </div>
         </div>
-        <div className="col-4">
-          <div className={styles.inpute_div}>
+        <div className="col-md-4 col-lg-4 hidden-xs hidden-sm">
+          {/* <div className={styles.form_div}> */}
+          <div
+            className={styles.inpute_div}
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: 50,
+            }}
+          >
             {selectField === "Login" ? (
               <>
                 <div className="row">
@@ -327,7 +293,7 @@ const index = () => {
             )}
           </div>
         </div>
-        <div className="col-2"></div>
+        <div className="col-md-2 col-lg-2 hidden-xs hidden-sm"></div>
       </div>
     </>
   );

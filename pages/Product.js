@@ -46,9 +46,9 @@ const Product = () => {
                   justifyContent: "center",
                 }}
               >
-                <div className="col-1">
+                <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm">
                   <button
-                    // onClick={() => setCurrentSlider(index, "Previous")}
+                    // onClick={() => setCurrentSlider(ndex, "Previous")}
                     style={{
                       mixBlendMode: "multiply",
                       backgroundColor: "white",
@@ -60,21 +60,22 @@ const Product = () => {
                   </button>
                 </div>
                 <div
-                  className="col-7"
+                  className="col-md-7 col-lg-7 hidden-xs- hidden-sm"
                   style={{
                     paddingTop: 50,
                     paddingBottom: 50,
-                    paddingRight: 450,
                   }}
                 >
-                  <span className={styles.title_here_text}>{item.name}</span>
-                  <br />
-                  <p className={styles.subtitle_text}>{item.sub_title}</p>
+                  <div className={styles.paddingRight}>
+                    <span className={styles.title_here_text}>{item.name}</span>
+                    <br />
+                    <p className={styles.subtitle_text}>{item.sub_title}</p>
+                  </div>
                 </div>
-                <div className="col-3">
+                <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
                   <Image src={item.img} />
                 </div>
-                <div className="col-1">
+                <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm">
                   <button
                     // onClick={() => setCurrentSlider(index, "Previous")}
                     style={{
@@ -105,19 +106,19 @@ const Product = () => {
         return (
           <>
             <div className="row" style={{ marginTop: 10, marginBottom: 10 }}>
-              <div className="col-1"></div>
-              <div className="col-10">
+              <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+              <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
                 <span className={styles.outerItem_title}>{outItem.name}</span>
               </div>
-              <div className="col-1"></div>
+              <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
             </div>
             <div className="row">
-              <div className="col-1"></div>
-              <div className="col-10">
+              <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+              <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
                 <div className="row">
                   {outItem.sub_array.map((inItem, inIndex) => {
                     return (
-                      <div className="col-3">
+                      <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
                         <div className={styles.backgroundimage_div}>
                           <div>
                             <Image
@@ -168,17 +169,17 @@ const Product = () => {
                   })}
                 </div>
               </div>
-              <div className="col-1"></div>
+              <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
             </div>
           </>
         );
       })}
       <div className="row">
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <hr className={styles.border_style} />
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <div>
         <ChatWithDoctore chatWithDoctore={() => Route.push("/FindDoctor")} />
@@ -191,8 +192,11 @@ const Product = () => {
           marginTop: 70,
         }}
       >
-        <div className="col-1"></div>
-        <div className="col-5" style={{ marginTop: 30 }}>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div
+          className="col-md-5 col-lg-5 hidden-xs- hidden-sm"
+          style={{ marginTop: 30 }}
+        >
           <p className={styles.comprehensive_information}>
             COMPREHENSIVE INFORMATION
           </p>
@@ -204,7 +208,7 @@ const Product = () => {
             Verified medical experts
           </p>
         </div>
-        <div className="col-5">
+        <div className="col-md-5 col-lg-5 hidden-xs- hidden-sm">
           <Image
             src={require("../assets/Images/Small_Phone.png")}
             style={{
@@ -214,7 +218,7 @@ const Product = () => {
             }}
           />
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <div className="row">
         <p className={styles.what_our_user_have_to_say_text}>
@@ -222,8 +226,8 @@ const Product = () => {
         </p>
       </div>
       <div className="row">
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <Image src={require("../assets/Images/Comma.png")} />
 
           <p className={styles.paragraph_text}>
@@ -232,17 +236,17 @@ const Product = () => {
             Same pets costs me +100 from local shop. Recommended application :)
           </p>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       <div className="row" style={{ paddingTop: 10, paddingBottom: 10 }}>
-        <div className="col-4"></div>
-        <div className="col-2">
+        <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm"></div>
+        <div className="col-md-2 col-lg-2 hidden-xs- hidden-sm">
           <Image
             src={require("../assets/Images/Profile_image.png")}
             style={{ float: "right", marginTop: 8 }}
           />
         </div>
-        <div className="col-2">
+        <div className="col-md-2 col-lg-2 hidden-xs- hidden-sm">
           <p className={styles.profile_name}>Ayushi Varma</p>
           <p className={styles.date_text}>Oct 2018 at 11:33 AM</p>
           <div className="row">
@@ -263,7 +267,7 @@ const Product = () => {
             })}
           </div>
         </div>
-        <div className="col-4"></div>
+        <div className="col-md-4 col-lg-4  hidden-xs- hidden-sm"></div>
       </div>
       <FooterDiv />
     </>

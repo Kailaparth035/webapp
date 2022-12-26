@@ -29,7 +29,7 @@ const FooterDiv = () => {
           paddingTop: 60,
         }}
       >
-        <div className="col-5">
+        <div className="col-md-5 col-lg-5 hidden-xs- hidden-sm">
           <Image
             src={require("../assets/Images/Phone_image.png")}
             style={{
@@ -41,7 +41,7 @@ const FooterDiv = () => {
             }}
           />
         </div>
-        <div className="col-7">
+        <div className="col-md-7 col-lg-7 hidden-xs- hidden-sm">
           <span className={styles.download_text}>Download the Practo app</span>
           <br />
           <span className={styles.comprehensive_information_text}>

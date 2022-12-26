@@ -59,11 +59,14 @@ const Home = () => {
         className="row"
         style={{ paddingTop: 20, paddingBottom: 20, marginLeft: -20 }}
       >
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 col-xs-1 col-sm-1"></div>
+        <div className="col-md-10 col-lg-10 cl-xs-10 col-sm-10">
           <div className={styles.title_here_main_div}>
-            <div className="row">
-              <div className="col-6">
+            <div
+              className="row"
+              style={{ display: "flex", flexDirection: "row" }}
+            >
+              <div className="col-md-6 col-lg-6 cl-xs-6 col-sm-6">
                 <span className={styles.titlehere_text}>Title Here</span>
                 <br />
                 <span className={styles.paragraph_text}>
@@ -82,7 +85,7 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-              <div className="col-6">
+              <div className="col-md-6 col-lg-6 cl-xs-6 col-sm-6">
                 <Image
                   src={require("../assets/Images/AmicoImage.png")}
                   className={styles.anico_image}
@@ -91,17 +94,17 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       {/* health_consult first array */}
       <div className="row" style={{ marginLeft: -20 }}>
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <div className="row">
             {title_here.map((mapItem) => {
               return (
                 <div
-                  className="col-3"
+                  className="col-md-3 col-lg-3 hidden-xs- hidden-sm"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -151,8 +154,8 @@ const Home = () => {
       </div>
       {/* health_consult array second loop */}
       <div className="row" style={{ marginLeft: -20 }}>
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <div
             className="row"
             style={{
@@ -164,7 +167,7 @@ const Home = () => {
             {health_concern.map((mapItem) => {
               return (
                 <div
-                  className="col-2"
+                  className="col-md-2 col-lg-2 hidden-xs- hidden-sm"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -192,7 +195,7 @@ const Home = () => {
             })}
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       {/* health_consult simple text */}
       <div className="row" style={{ marginTop: 70 }}>
@@ -212,8 +215,8 @@ const Home = () => {
       </div>
       {/* Lorepipsum dummy text div */}
       <div className="row" style={{ marginTop: 40 }}>
-        <div className="col-1"></div>
-        <div className="col-10">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs- hidden-sm">
           <div
             className="row"
             style={{
@@ -223,7 +226,7 @@ const Home = () => {
             {loripipsome_array.map((mapItem) => {
               return (
                 <div
-                  className="col-4"
+                  className="col-md-4 col-lg-4 hidden-xs- hidden-sm"
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -255,13 +258,16 @@ const Home = () => {
             })}
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       {/* top artical read div */}
-      <div className="row" style={{ marginLeft: -20, marginTop: 50 }}>
-        <div className="col-1"></div>
+      <div className="row" style={{ marginTop: 50 }}>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
 
-        <div className="col-5" style={{ paddingTop: 60 }}>
+        <div
+          className="col-md-5 col-lg-5 hidden-xs- hidden-sm"
+          style={{ paddingTop: 60 }}
+        >
           <span className={styles.expert_header_text}>
             Read top articles from health experts
           </span>
@@ -279,12 +285,12 @@ const Home = () => {
           {/* </div> */}
         </div>
         <div
-          className="col-5"
+          className="col-md-5 col-lg-5 hidden-xs- hidden-sm"
           style={{
             alignItems: "center",
             justifyContent: "flex-end",
             padding: 50,
-            display: "flex",
+            // display: "flex",
           }}
         >
           <Image
@@ -296,7 +302,7 @@ const Home = () => {
             style={{ width: 260, height: 260, marginLeft: 20 }}
           />
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
       {/* slider div */}
       <div className="row" style={{ paddingBottom: 40 }}>
@@ -307,7 +313,7 @@ const Home = () => {
           <>
             {index === currentSliderval ? (
               <div className="row">
-                <div className="col-3">
+                <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
                   <button
                     onClick={() => setCurrentSlider(index, "Previous")}
                     style={{
@@ -323,7 +329,7 @@ const Home = () => {
                     />
                   </button>
                 </div>
-                <div className="col-6">
+                <div className="col-md-6 col-lg-6 hidden-xs- hidden-sm">
                   <span className={styles.multiline_text}>
                     {item.paragraph}
                     {/* “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -332,7 +338,7 @@ const Home = () => {
                   </span>
                 </div>
 
-                <div className="col-3">
+                <div className="col-md-3 col-lg-3 hidden-xs- hidden-sm">
                   <button
                     onClick={() => setCurrentSlider(index, "Next")}
                     style={{
@@ -353,8 +359,8 @@ const Home = () => {
         );
       })}
       <div className="row">
-        <div className="col-4"></div>
-        <div className="col-4">
+        <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm"></div>
+        <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm">
           <div className="row" style={{ justifyContent: "center" }}>
             {slider_paragraph.map((item, index) => {
               return (
@@ -373,7 +379,7 @@ const Home = () => {
             })}
           </div>
         </div>
-        <div className="col-4"></div>
+        <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm"></div>
       </div>
       ;
       <div className="row">

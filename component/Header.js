@@ -12,21 +12,17 @@ const Header = () => {
           rel="stylesheet"
         />
       </Head>
-      <div className="row" style={{ paddingTop: 10, paddingBottom: 40 }}>
-        <div className="col-2"></div>
-        <div className="col-1">
-          <Image
-            src={require("../assets/Images/Header_Logo.png")}
-            style={{ float: "right" }}
-          />
+      <header className={styles.header_of_login}>
+        <div className={styles.header_image_div}>
+          <Image src={require("../assets/Images/Header_Logo.png")} />
         </div>
-      </div>
+      </header>
 
-      <div className="row">
-        <div className="col-1"></div>
-        <div className="col-10">
+      <div className="row" style={{ display: "flex", flexDirection: "row" }}>
+        <div className="col-md-1 col-lg-1 hidden-xs hidden-sm"></div>
+        <div className="col-md-10 col-lg-10 hidden-xs hidden-sm">
           <div className="row">
-            <div className="col-6">
+            <div className="col-md-6 col-lg-6 col-xs-6 col-sm-6 ">
               <div className="row">
                 <div
                   className={styles.inpute_box_div}
@@ -45,7 +41,7 @@ const Header = () => {
               </div>
             </div>
             {/* <div className="col-2"></div> */}
-            <div className="col-6">
+            <div className="col-md-6 col-lg-6 col-xs-6 col-sm-6">
               <button className={styles.viewcard_button_div}>
                 <Image src={require("../assets/Images/ViewCard.png")} />
                 <span className={styles.viewCars_text}>View Card</span>
@@ -53,7 +49,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs hidden-sm"></div>
       </div>
       <hr className={styles.border_hr} />
     </div>

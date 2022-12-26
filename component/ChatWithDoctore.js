@@ -22,8 +22,8 @@ const ChatWithDoctore = (props) => {
         />
       </Head>
       <div className="row" style={{ paddingTop: 30 }}>
-        <div className="col-1"></div>
-        <div className="col-5">
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div className="col-md-5 col-lg-5 hidden-xs- hidden-sm">
           <p className={styles.introduction_consultation}>
             INTRODUCING CONSULTATION
           </p>
@@ -31,7 +31,7 @@ const ChatWithDoctore = (props) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi metus
             amet facilisis est.
           </p>
-          <div className="col-12">
+          <div className="col-md-12 col-lg-12 hidden-xs- hidden-sm">
             <div className={styles.chatwithdoctore_image_div}>
               <div>
                 <Image
@@ -59,7 +59,7 @@ const ChatWithDoctore = (props) => {
             />
           </button>
         </div>
-        <div className="col-5">
+        <div className="col-md-5 col-lg-5 hidden-xs- hidden-sm">
           <p className={styles.introduction_consultation}>
             INTRODUCING CONSULTATION
           </p>
@@ -67,7 +67,7 @@ const ChatWithDoctore = (props) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi metus
             amet facilisis est.
           </p>
-          <div className="col-12">
+          <div className="col-md-12 col-lg-12 hidden-xs- hidden-sm">
             <div className={styles.chatwithdoctore_image_div}>
               <div>
                 <Image
@@ -94,7 +94,7 @@ const ChatWithDoctore = (props) => {
             />
           </button>
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
     </>
   );

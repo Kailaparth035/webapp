@@ -186,34 +186,9 @@
   color: #000000;
   opacity: 0.5;
   text-align: justify;
-  /* align-self: center; */
-  /* padding: 0px 10px 0px 10px; */
   font-family: "Inter", sans-serif;
 }
 
-/* .download_text {
-  font-weight: 600;
-  font-size: 20px;
-  color: #000000;
-  font-family: "Inter", sans-serif;
-}
-
-.comprehensive_information_text {
-  font-weight: 500;
-  font-size: 12px;
-  color: #000000;
-  font-family: "Inter", sans-serif;
-} */
-/* 
-.footer_paragraph_text {
-  font-weight: 500;
-  font-size: 12px;
-  /* padding-top: 20px; */
-/* color: #000000;
-  line-height: -10;
-  margin: 10px 0px 0px 0px;
-  font-family: "Inter", sans-serif;
-} */
 .slider_circle_button {
   height: 25px;
   width: 10px;

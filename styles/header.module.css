@@ -1,3 +1,16 @@
+.main_div {
+  width: 100vmax;
+}
+
+.header_of_login {
+  height: 70px;
+  background: #ffffff;
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12); */
+}
+.header_image_div {
+  padding: 10px 10px 0px 150px;
+}
+
 .searchbar_inpute {
   background: #ffffff;
   border: none;
@@ -38,4 +51,24 @@
   /* paddingLeft: 20, */
   color: #ffffff;
   font-family: "Montserrat";
+}
+
+@media only screen and (max-width: 600px) {
+  .header_of_login {
+    height: 60px;
+    width: 100vmax;
+    background: #ffffff;
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12); */
+  }
+
+  .header_image_div {
+    padding: 10px 10px 0px 80px;
+  }
+  .inpute_box_div {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0px 0px 0px 50px;
+  }
 }

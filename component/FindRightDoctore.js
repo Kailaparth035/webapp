@@ -24,8 +24,11 @@ const FindRightDoctore = () => {
         className="row"
         style={{ backgroundColor: "#FFFFFF", paddingTop: 50 }}
       >
-        <div className="col-1"></div>
-        <div className="col-5" style={{ marginLeft: 60, marginTop: 60 }}>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
+        <div
+          className="col-md-5 col-lg-5 hidden-xs- hidden-sm"
+          style={{ marginLeft: 60, marginTop: 60 }}
+        >
           <div className="row">
             <p className={styles.paragraph_style}>
               Instant appointment with doctors.Guaranteed.
@@ -69,13 +72,13 @@ const FindRightDoctore = () => {
             </button>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-md-4 col-lg-4 hidden-xs- hidden-sm">
           <Image
             src={require("../assets/Images/Doctore.png")}
             style={{ float: "right", marginRight: 60 }}
           />
         </div>
-        <div className="col-1"></div>
+        <div className="col-md-1 col-lg-1 hidden-xs- hidden-sm"></div>
       </div>
     </>
   );
