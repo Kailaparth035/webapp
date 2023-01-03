@@ -195,3 +195,30 @@ export const browser_pet_product = [
     ],
   },
 ];
+
+export const tabale_data = [
+  {
+    id: 1,
+    product_id: "1",
+    product_name: "Product1",
+    quolity: "100%",
+    quontity: "10",
+    grade: "A",
+  },
+  {
+    id: 2,
+    product_id: "2",
+    product_name: "Product2",
+    quolity: "80%",
+    quontity: "20",
+    grade: "B",
+  },
+  {
+    id: 3,
+    product_id: "3",
+    product_name: "Product3",
+    quolity: "90%",
+    quontity: "80",
+    grade: "C",
+  },
+];
