@@ -14,7 +14,7 @@ function LoginAdmin() {
           <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="../../index3.html" method="post">
+            <form method="post">
               <div class="input-group mb-3">
                 <input type="email" class="form-control" placeholder="Email" />
               </div>
@@ -45,9 +45,9 @@ function LoginAdmin() {
 
                 <div class="col-4">
                   <button
-                    type="submit"
+                    // type="submit"
                     class="btn btn-primary btn-block"
-                    onClick={() => router.push("/Tabale")}
+                    onClick={() => router.push("/Admin/Product")}
                   >
                     Sign In
                   </button>
@@ -70,7 +70,7 @@ function LoginAdmin() {
             </div>
 
             <p class="mb-1">
-              <a href="forgot-password.html">I forgot my password</a>
+              <a href="/Admin/ForgetPasswordAdmin">I forgot my password</a>
             </p>
             <p class="mb-0">
               <a href="register.html" class="text-center">
@@ -82,39 +82,6 @@ function LoginAdmin() {
       </div>
       {/* </div> */}
     </div>
-    // <div
-    //   className="container common_bg my-5 loginPage"
-    //   style={{ backgroundColor: "white" }}
-    // >
-    //   <h1 className="Common_Heading text-center">Admin Login</h1>
-    //   <div className="d-flex align-items-center justify-content-center">
-    //     <div className={styles.box_div}>
-    //       <div class="input-group mb-3">
-    //         <input type="email" class="form-control" placeholder="Email" />
-    //       </div>
-    //       <div class="input-group mb-3">
-    //         <input type="Password" class="form-control" placeholder="Email" />
-    //       </div>
-    //       <div class="row">
-    //         <div class="col-8">
-    //           <div class="icheck-primary">
-    //             <input type="checkbox" id="remember" />
-    //             <label for="remember">Remember Me</label>
-    //           </div>
-    //         </div>
-
-    //         <div
-    //           class="col-4"
-    //           style={{ alignItems: "flex-end", display: "flex" }}
-    //         >
-    //           <button type="submit" class="btn btn-primary btn-block">
-    //             Sign In
-    //           </button>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 
