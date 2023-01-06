@@ -14,7 +14,7 @@ function LoginAdmin() {
           <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form method="post">
+            <div>
               <div class="input-group mb-3">
                 <input type="email" class="form-control" placeholder="Email" />
               </div>
@@ -53,7 +53,7 @@ function LoginAdmin() {
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
 
             <div class="social-auth-links text-center mb-3">
               <p>- OR -</p>

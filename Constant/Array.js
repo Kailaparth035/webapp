@@ -222,3 +222,30 @@ export const tabale_data = [
     grade: "C",
   },
 ];
+
+export const doctor_list = [
+  {
+    id: 1,
+    doctor_id: "1",
+    doctor_name: "Doctor1",
+    mobile_number: "6352215965",
+    qualification: "BAMS",
+    grade: "A",
+  },
+  {
+    id: 1,
+    doctor_id: "1",
+    doctor_name: "Doctor1",
+    mobile_number: "6352215965",
+    qualification: "BAMS",
+    grade: "A",
+  },
+  {
+    id: 1,
+    doctor_id: "1",
+    doctor_name: "Doctor1",
+    mobile_number: "6352215965",
+    qualification: "BAMS",
+    grade: "A",
+  },
+];
