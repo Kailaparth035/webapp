@@ -55,6 +55,7 @@ const Product = () => {
           <Drawer
             product={() => route.push("/Admin/Product")}
             doctor={() => route.push("/Admin/Doctor")}
+            order={() => route.push("/Admin/Order")}
             key={route.asPath}
           />
         </div>

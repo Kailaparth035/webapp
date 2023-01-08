@@ -1,51 +1,50 @@
 import React, { useEffect, useState } from "react";
-import { doctor_list } from "../../Constant/Array";
+import { tabale_data } from "../../Constant/Array";
 import Drawer from "../../component/Drawer";
 import { useRouter } from "next/router";
 
-function Doctor() {
-  const [tabaleData, setTabaleData] = useState([]);
+const Order = () => {
+  const [tabaledata, setTabaledata] = useState([]);
+  const route = useRouter();
 
   useEffect(() => {
-    doctorelist_api();
+    productApicall();
   }, []);
 
-  const doctorelist_api = async () => {
+  const productApicall = async () => {
     try {
-      const response = await fetch("http://localhost:4585/user/doctor", {
+      const response = await fetch("http://localhost:4585/user/product", {
         method: "GET",
       });
-      let responseJson = await response.json();
 
-      console.log("responseJSon ::", responseJson);
+      let responseJson = await response.json();
+      console.log("response ::;", responseJson);
       if (response.status === 200) {
-        setTabaleData(responseJson.data);
+        setTabaledata(responseJson.data);
       }
     } catch (error) {
       console.log(error.message);
     }
   };
-  const deletDoctoreItem = async (item) => {
+
+  const deletItem = async (item) => {
     try {
       const response = await fetch(
-        "http://localhost:4585/user/doctor/" + item._id,
+        "http://localhost:4585/user/product/" + item._id,
         {
           method: "DELETE",
         }
       );
-      let responseJSon = response.json();
-      console.log("responseJSon:::", responseJSon);
+      let responseJson = response.json();
       if (response.status === 200) {
-        alert("Doctor breed Successfully Delete");
-        doctorelist_api();
+        alert("Product breed Successfully Delete");
+        productApicall();
       }
+      console.log("responseJson ::", responseJson);
     } catch (error) {
-      console.log(error.message);
+      console.log("error ::", error);
     }
   };
-
-  const route = useRouter();
-  // console.log("route::", route.pathname);
   return (
     <div className="container-wrapped">
       <div className="row">
@@ -68,7 +67,7 @@ function Doctor() {
                   <div className="container-fluid">
                     <div className="row mb-2">
                       <div className="col-sm-6">
-                        <h1>Doctor</h1>
+                        <h1>Order</h1>
                       </div>
                     </div>
                   </div>
@@ -79,52 +78,30 @@ function Doctor() {
                       <div className="col-12">
                         <div className="card">
                           <div className="card-header">
-                            <h3 className="card-title">Doctore List</h3>
+                            <h3 className="card-title">Order List</h3>
                           </div>
 
                           <div className="card-body">
-                            <table id="example2" className="table-bordered">
+                            <table
+                              id="example2"
+                              className="table table-bordered table-hover"
+                            >
                               <thead>
                                 <tr>
-                                  <th>Name</th>
-                                  <th>Specialization</th>
-                                  <th>Gender</th>
-                                  <th>city</th>
-                                  <th>registration</th>
-                                  <th>council</th>
-                                  <th>year</th>
-                                  <th>degree</th>
-                                  <th>collage</th>
-                                  <th>completion</th>
-                                  <th>experience</th>
-                                  <th>practice</th>
-                                  <th>Estname</th>
-                                  {/* <th>Estcity</th>
-                                  <th>Estlocality</th> */}
-
+                                  <th>Order Name</th>
+                                  <th>Description</th>
+                                  <th>Price</th>
                                   <th>Edit</th>
                                   <th>Delet</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {tabaleData.map((item) => {
+                                {tabaledata.map((item) => {
                                   return (
                                     <tr>
                                       <td>{item.name}</td>
-                                      <td>{item.specialization}</td>
-                                      <td>{item.gender}</td>
-                                      <td>{item.city}</td>
-                                      <td>{item.registration}</td>
-                                      <td>{item.council}</td>
-                                      <td>{item.year}</td>
-                                      <td>{item.degree}</td>
-                                      <td>{item.collage}</td>
-                                      <td>{item.completion}</td>
-                                      <td>{item.experience}</td>
-                                      <td>{item.practice}</td>
-                                      <td>{item.Estname}</td>
-                                      {/* <td>{item.Estcity}</td>
-                                      <td>{item.Estlocality}</td> */}
+                                      <td>{item.description}</td>
+                                      <td>{item.price}</td>
                                       <td>
                                         <button
                                           type="button"
@@ -133,25 +110,13 @@ function Doctor() {
                                             route.push({
                                               pathname: "/Admin/AddItem",
                                               query: {
-                                                key: "Doctor",
+                                                key: "Order",
                                                 type: "Edit",
                                                 id: item._id,
                                                 name: item.name,
-                                                specialization:
-                                                  item.specialization,
-                                                gender: item.gender,
-                                                city: item.city,
-                                                registration: item.registration,
-                                                council: item.council,
-                                                year: item.year,
-                                                degree: item.degree,
-                                                collage: item.collage,
-                                                completion: item.completion,
-                                                experience: item.experience,
-                                                practice: item.practice,
-                                                Estname: item.Estname,
-                                                Estcity: item.Estcity,
-                                                Estlocality: item.Estlocality,
+                                                description: item.description,
+                                                price: item.price,
+                                                image: item.image,
                                               },
                                             })
                                           }
@@ -163,7 +128,7 @@ function Doctor() {
                                         <button
                                           type="button"
                                           className="btn btn-danger"
-                                          onClick={() => deletDoctoreItem(item)}
+                                          onClick={() => deletItem(item)}
                                         >
                                           Delete
                                         </button>
@@ -183,13 +148,14 @@ function Doctor() {
                   <button
                     type="button"
                     className="btn btn-info"
-                    style={{ float: "right", margin: 30, color: "white" }}
+                    style={{ float: "right", margin: 30 }}
                     onClick={() =>
                       route.push({
                         pathname: "/Admin/AddItem",
                         query: {
-                          key: "Doctor",
+                          key: "Order",
                           type: "Add",
+                          length: tabaledata.length,
                         },
                       })
                     }
@@ -204,6 +170,6 @@ function Doctor() {
       </div>
     </div>
   );
-}
+};
 
-export default Doctor;
+export default Order;

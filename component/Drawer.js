@@ -21,6 +21,14 @@ const Drawer = (props) => {
       >
         Doctor
       </button>
+      <button
+        type="button"
+        className="btn btn-primary"
+        style={{ width: 245, borderRadius: 0 }}
+        onClick={() => props.order()}
+      >
+        Order
+      </button>
 
       {/* <button
         type="button"

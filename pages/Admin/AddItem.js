@@ -271,6 +271,7 @@ function AddItem() {
           <Drawer
             product={() => route.push("/Admin/Product")}
             doctor={() => route.push("/Admin/Doctor")}
+            order={() => route.push("/Admin/Order")}
           />
         </div>
         <div className="col-10">
