@@ -8,26 +8,26 @@ function LoginAdmin() {
     <div className="container common_bg my-5 loginPage">
       <h1 className="Common_Heading text-center">Admin Login</h1>
       <div className="d-flex align-items-center justify-content-center">
-        <div class="login-logo"></div>
+        <div className="login-logo"></div>
 
-        <div class={styles.box_div}>
-          <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+        <div className={styles.box_div}>
+          <div className="card-body login-card-body">
+            <p className="login-box-msg">Sign in to start your session</p>
 
             <div>
-              <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email" />
+              <div className="input-group mb-3">
+                <input type="email" className="form-control" placeholder="Email" />
               </div>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                 />
               </div>
-              <div class="row">
-                <div class="col-8">
-                  <div class="icheck-primary">
+              <div className="row">
+                <div className="col-8">
+                  <div className="icheck-primary">
                     <input
                       type="checkbox"
                       id="remember"
@@ -43,10 +43,10 @@ function LoginAdmin() {
                   </div>
                 </div>
 
-                <div class="col-4">
+                <div className="col-4">
                   <button
                     // type="submit"
-                    class="btn btn-primary btn-block"
+                    className="btn btn-primary btn-block"
                     onClick={() => router.push("/Admin/Product")}
                   >
                     Sign In
@@ -55,25 +55,25 @@ function LoginAdmin() {
               </div>
             </div>
 
-            <div class="social-auth-links text-center mb-3">
+            <div className="social-auth-links text-center mb-3">
               <p>- OR -</p>
               <div className="col-12">
-                <a href="#" class="btn btn-block btn-primary">
-                  <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                <a href="#" className="btn btn-block btn-primary">
+                  <i className="fab fa-facebook mr-2"></i> Sign in using Facebook
                 </a>
               </div>
               <div className="col-12" style={{ marginTop: 10 }}>
-                <a href="#" class="btn btn-block btn-danger">
-                  <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                <a href="#" className="btn btn-block btn-danger">
+                  <i className="fab fa-google-plus mr-2"></i> Sign in using Google+
                 </a>
               </div>
             </div>
 
-            <p class="mb-1">
+            <p className="mb-1">
               <a href="/Admin/ForgetPasswordAdmin">I forgot my password</a>
             </p>
-            <p class="mb-0">
-              <a href="register.html" class="text-center">
+            <p className="mb-0">
+              <a href="register.html" className="text-center">
                 Register a new membership
               </a>
             </p>

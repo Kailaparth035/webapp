@@ -1,12 +1,12 @@
 import React from "react";
 
 const Drawer = (props) => {
-  console.log("props.key ::", props.key);
+  // console.log("props.key ::", props.key);
   return (
     <div>
       <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         style={{ width: 245, borderRadius: 0 }}
         onClick={() => props.product()}
       >
@@ -15,16 +15,16 @@ const Drawer = (props) => {
 
       <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         style={{ width: 245, borderRadius: 0 }}
-        onClick={() => props.product()}
+        onClick={() => props.doctor()}
       >
         Doctor
       </button>
 
       {/* <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         style={{ width: 245, borderRadius: 0 }}
         onClick={() => props.doctor()}
       >
@@ -32,7 +32,7 @@ const Drawer = (props) => {
       </button> */}
       {/* <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         style={{ width: 245, borderRadius: 0 }}
         onClick={() => props.product()}
       >

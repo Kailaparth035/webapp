@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { tabale_data } from "../../Constant/Array";
 import Drawer from "../../component/Drawer";
 import { useRouter } from "next/router";
 
 const Product = () => {
+  const [tabaledata, setTabaledata] = useState([]);
   const route = useRouter();
-  console.log("route::", route.asPath);
+
+  useEffect(() => {
+    productApicall();
+  }, []);
+
+  const productApicall = async () => {
+    try {
+      const response = await fetch("http://localhost:4585/user/product", {
+        method: "GET",
+      });
+
+      let responseJson = await response.json();
+      console.log("response ::;", responseJson);
+      if (response.status === 200) {
+        setTabaledata(responseJson.data);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const deletItem = async (item) => {
+    try {
+      const response = await fetch(
+        "http://localhost:4585/user/product/" + item._id,
+        {
+          method: "DELETE",
+        }
+      );
+      let responseJson = response.json();
+      if (response.status === 200) {
+        alert("Product breed Successfully Delete");
+        productApicall();
+      }
+      console.log("responseJson ::", responseJson);
+    } catch (error) {
+      console.log("error ::", error);
+    }
+  };
   return (
     <div className="container-wrapped">
       <div className="row">
@@ -20,56 +59,66 @@ const Product = () => {
           />
         </div>
         <div className="col-10">
-          <div class="hold-transition sidebar-mini layout-fixed">
-            <div class="wrapper">
-              <div class="content-wrapper">
-                <section class="content-header">
-                  <div class="container-fluid">
-                    <div class="row mb-2">
-                      <div class="col-sm-6">
+          <div className="hold-transition sidebar-mini layout-fixed">
+            <div className="wrapper">
+              <div className="content-wrapper">
+                <section className="content-header">
+                  <div className="container-fluid">
+                    <div className="row mb-2">
+                      <div className="col-sm-6">
                         <h1>Product</h1>
                       </div>
                     </div>
                   </div>
                 </section>
-                <section class="content">
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title">Product List</h3>
+                <section className="content">
+                  <div className="container-fluid">
+                    <div className="row">
+                      <div className="col-12">
+                        <div className="card">
+                          <div className="card-header">
+                            <h3 className="card-title">Product List</h3>
                           </div>
 
-                          <div class="card-body">
+                          <div className="card-body">
                             <table
                               id="example2"
-                              class="table table-bordered table-hover"
+                              className="table table-bordered table-hover"
                             >
                               <thead>
                                 <tr>
-                                  <th>Product ID</th>
                                   <th>Product Name</th>
-                                  <th>Quolity</th>
-                                  <th>Quontity</th>
-                                  <th>Grade</th>
+                                  <th>Description</th>
+                                  <th>Price</th>
                                   <th>Edit</th>
                                   <th>Delet</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {tabale_data.map((item) => {
+                                {tabaledata.map((item) => {
                                   return (
                                     <tr>
-                                      <td>{item.product_id}</td>
-                                      <td>{item.product_name}</td>
-                                      <td>{item.quolity}</td>
-                                      <td>{item.quontity}</td>
-                                      <td>{item.grade}</td>
+                                      <td>{item.name}</td>
+                                      <td>{item.description}</td>
+                                      <td>{item.price}</td>
                                       <td>
                                         <button
                                           type="button"
-                                          class="btn btn-link"
+                                          className="btn btn-link"
+                                          onClick={() =>
+                                            route.push({
+                                              pathname: "/Admin/AddItem",
+                                              query: {
+                                                key: "Product",
+                                                type: "Edit",
+                                                id: item._id,
+                                                name: item.name,
+                                                description: item.description,
+                                                price: item.price,
+                                                image: item.image,
+                                              },
+                                            })
+                                          }
                                         >
                                           Edit
                                         </button>
@@ -77,9 +126,10 @@ const Product = () => {
                                       <td>
                                         <button
                                           type="button"
-                                          class="btn btn-danger"
+                                          className="btn btn-danger"
+                                          onClick={() => deletItem(item)}
                                         >
-                                          Delet
+                                          Delete
                                         </button>
                                       </td>
                                     </tr>
@@ -96,10 +146,20 @@ const Product = () => {
                 <div className="container-wrapped">
                   <button
                     type="button"
-                    class="btn btn-info"
+                    className="btn btn-info"
                     style={{ float: "right", margin: 30 }}
+                    onClick={() =>
+                      route.push({
+                        pathname: "/Admin/AddItem",
+                        query: {
+                          key: "Product",
+                          type: "Add",
+                          length: tabaledata.length,
+                        },
+                      })
+                    }
                   >
-                    Add Item
+                    + Add Item
                   </button>
                 </div>
               </div>

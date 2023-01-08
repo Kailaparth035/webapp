@@ -20,39 +20,47 @@ function Doctor() {
           />
         </div>
         <div className="col-10">
-          <div class="hold-transition sidebar-mini layout-fixed">
-            <div class="wrapper">
-              <div class="content-wrapper">
-                <section class="content-header">
-                  <div class="container-fluid">
-                    <div class="row mb-2">
-                      <div class="col-sm-6">
+          <div className="hold-transition sidebar-mini layout-fixed">
+            <div className="wrapper">
+              <div className="content-wrapper">
+                <section className="content-header">
+                  <div className="container-fluid">
+                    <div className="row mb-2">
+                      <div className="col-sm-6">
                         <h1>Doctor</h1>
                       </div>
                     </div>
                   </div>
                 </section>
-                <section class="content">
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title">Doctore List</h3>
+                <section className="content">
+                  <div className="container-fluid">
+                    <div className="row">
+                      <div className="col-12">
+                        <div className="card">
+                          <div className="card-header">
+                            <h3 className="card-title">Doctore List</h3>
                           </div>
 
-                          <div class="card-body">
-                            <table
-                              id="example2"
-                              class="table table-bordered table-hover"
-                            >
+                          <div className="card-body">
+                            <table id="example2" className="table table-bordered">
                               <thead>
                                 <tr>
-                                  <th>Doctor ID</th>
-                                  <th>Doctor Name</th>
-                                  <th>Mobile No</th>
-                                  <th>Qualification</th>
-                                  <th>Grade</th>
+                                  <th>Name</th>
+                                  <th>Specialization</th>
+                                  <th>Gender</th>
+                                  <th>city</th>
+                                  <th>registration</th>
+                                  <th>council</th>
+                                  <th>year</th>
+                                  {/* <th>degree</th> */}
+                                  {/* <th>collage</th>
+                                  <th>completion</th>
+                                  <th>experience</th> */}
+                                  {/* <th>practice</th>
+                                  <th>Estname</th>
+                                  <th>Estcity</th>
+                                  <th>Estlocality</th> */}
+
                                   <th>Edit</th>
                                   <th>Delet</th>
                                 </tr>
@@ -61,15 +69,41 @@ function Doctor() {
                                 {doctor_list.map((item) => {
                                   return (
                                     <tr>
-                                      <td>{item.doctor_id}</td>
-                                      <td>{item.doctor_name}</td>
-                                      <td>{item.mobile_number}</td>
-                                      <td>{item.qualification}</td>
-                                      <td>{item.grade}</td>
+                                      <td>{item.name}</td>
+                                      <td>{item.specialization}</td>
+                                      <td>{item.gender}</td>
+                                      <td>{item.city}</td>
+                                      <td>{item.registration}</td>
+                                      <td>{item.council}</td>
+                                      <td>{item.year}</td>
+                                      {/* <td>{item.degree}</td>
+                                      <td>{item.collage}</td>
+                                      <td>{item.completion}</td>
+                                      <td>{item.experience}</td>
+                                      <td>{item.practice}</td>
+                                      <td>{item.Estname}</td>
+                                      <td>{item.Estcity}</td>
+                                      <td>{item.Estlocality}</td> */}
                                       <td>
                                         <button
                                           type="button"
-                                          class="btn btn-link"
+                                          className="btn btn-link"
+                                          onClick={() =>
+                                            route.push({
+                                              pathname: "/Admin/AddItem",
+                                              query: {
+                                                key: "Doctor",
+                                                name: item.name,
+                                                specialization:
+                                                  item.specialization,
+                                                gender: item.gender,
+                                                city: item.city,
+                                                registration: item.registration,
+                                                council: item.council,
+                                                year: item.year,
+                                              },
+                                            })
+                                          }
                                         >
                                           Edit
                                         </button>
@@ -77,9 +111,9 @@ function Doctor() {
                                       <td>
                                         <button
                                           type="button"
-                                          class="btn btn-danger"
+                                          className="btn btn-danger"
                                         >
-                                          Delet
+                                          Delete
                                         </button>
                                       </td>
                                     </tr>
@@ -96,8 +130,16 @@ function Doctor() {
                 <div className="container-wrapped">
                   <button
                     type="button"
-                    class="btn btn-info"
+                    className="btn btn-info"
                     style={{ float: "right", margin: 30, color: "white" }}
+                    onClick={() =>
+                      route.push({
+                        pathname: "/Admin/AddItem",
+                        query: {
+                          key: "Doctor",
+                        },
+                      })
+                    }
                   >
                     + Add Item
                   </button>
