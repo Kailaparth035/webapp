@@ -1,11 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { doctor_list } from "../../Constant/Array";
 import Drawer from "../../component/Drawer";
 import { useRouter } from "next/router";
 
 function Doctor() {
+  const [tabaleData, setTabaleData] = useState([]);
+
+  useEffect(() => {
+    doctorelist_api();
+  }, []);
+
+  const doctorelist_api = async () => {
+    try {
+      const response = await fetch("http://localhost:4585/user/doctor", {
+        method: "GET",
+      });
+      let responseJson = await response.json();
+
+      console.log("responseJSon ::", responseJson);
+      if (response.status === 200) {
+        setTabaleData(responseJson.data);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const deletDoctoreItem = async (item) => {
+    try {
+      const response = await fetch(
+        "http://localhost:4585/user/doctor/" + item._id,
+        {
+          method: "DELETE",
+        }
+      );
+      let responseJSon = response.json();
+      console.log("responseJSon:::", responseJSon);
+      if (response.status === 200) {
+        alert("Doctor breed Successfully Delete");
+        doctorelist_api();
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const route = useRouter();
-  console.log("route::", route.pathname);
+  // console.log("route::", route.pathname);
   return (
     <div className="container-wrapped">
       <div className="row">
@@ -42,7 +82,7 @@ function Doctor() {
                           </div>
 
                           <div className="card-body">
-                            <table id="example2" className="table table-bordered">
+                            <table id="example2" className="table-bordered">
                               <thead>
                                 <tr>
                                   <th>Name</th>
@@ -52,13 +92,13 @@ function Doctor() {
                                   <th>registration</th>
                                   <th>council</th>
                                   <th>year</th>
-                                  {/* <th>degree</th> */}
-                                  {/* <th>collage</th>
+                                  <th>degree</th>
+                                  <th>collage</th>
                                   <th>completion</th>
-                                  <th>experience</th> */}
-                                  {/* <th>practice</th>
+                                  <th>experience</th>
+                                  <th>practice</th>
                                   <th>Estname</th>
-                                  <th>Estcity</th>
+                                  {/* <th>Estcity</th>
                                   <th>Estlocality</th> */}
 
                                   <th>Edit</th>
@@ -66,7 +106,7 @@ function Doctor() {
                                 </tr>
                               </thead>
                               <tbody>
-                                {doctor_list.map((item) => {
+                                {tabaleData.map((item) => {
                                   return (
                                     <tr>
                                       <td>{item.name}</td>
@@ -76,13 +116,13 @@ function Doctor() {
                                       <td>{item.registration}</td>
                                       <td>{item.council}</td>
                                       <td>{item.year}</td>
-                                      {/* <td>{item.degree}</td>
+                                      <td>{item.degree}</td>
                                       <td>{item.collage}</td>
                                       <td>{item.completion}</td>
                                       <td>{item.experience}</td>
                                       <td>{item.practice}</td>
                                       <td>{item.Estname}</td>
-                                      <td>{item.Estcity}</td>
+                                      {/* <td>{item.Estcity}</td>
                                       <td>{item.Estlocality}</td> */}
                                       <td>
                                         <button
@@ -93,6 +133,8 @@ function Doctor() {
                                               pathname: "/Admin/AddItem",
                                               query: {
                                                 key: "Doctor",
+                                                type: "Edit",
+                                                id: item._id,
                                                 name: item.name,
                                                 specialization:
                                                   item.specialization,
@@ -101,6 +143,14 @@ function Doctor() {
                                                 registration: item.registration,
                                                 council: item.council,
                                                 year: item.year,
+                                                degree: item.degree,
+                                                collage: item.collage,
+                                                completion: item.completion,
+                                                experience: item.experience,
+                                                practice: item.practice,
+                                                Estname: item.Estname,
+                                                Estcity: item.Estcity,
+                                                Estlocality: item.Estlocality,
                                               },
                                             })
                                           }
@@ -112,6 +162,7 @@ function Doctor() {
                                         <button
                                           type="button"
                                           className="btn btn-danger"
+                                          onClick={() => deletDoctoreItem(item)}
                                         >
                                           Delete
                                         </button>
@@ -137,6 +188,7 @@ function Doctor() {
                         pathname: "/Admin/AddItem",
                         query: {
                           key: "Doctor",
+                          type: "Add",
                         },
                       })
                     }
