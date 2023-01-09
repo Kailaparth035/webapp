@@ -8,12 +8,12 @@ const Order = () => {
   const route = useRouter();
 
   useEffect(() => {
-    productApicall();
+    orderApicall();
   }, []);
 
-  const productApicall = async () => {
+  const orderApicall = async () => {
     try {
-      const response = await fetch("http://localhost:4585/user/product", {
+      const response = await fetch("http://localhost:4585/user/order", {
         method: "GET",
       });
 
@@ -30,7 +30,7 @@ const Order = () => {
   const deletItem = async (item) => {
     try {
       const response = await fetch(
-        "http://localhost:4585/user/product/" + item._id,
+        "http://localhost:4585/user/order/" + item._id,
         {
           method: "DELETE",
         }
@@ -38,7 +38,7 @@ const Order = () => {
       let responseJson = response.json();
       if (response.status === 200) {
         alert("Product breed Successfully Delete");
-        productApicall();
+        orderApicall();
       }
       console.log("responseJson ::", responseJson);
     } catch (error) {
@@ -88,8 +88,9 @@ const Order = () => {
                             >
                               <thead>
                                 <tr>
-                                  <th>Order Name</th>
-                                  <th>Description</th>
+                                  <th>ProductId</th>
+                                  <th>UserId</th>
+                                  <th>Address</th>
                                   <th>Price</th>
                                   <th>Edit</th>
                                   <th>Delet</th>
@@ -99,8 +100,9 @@ const Order = () => {
                                 {tabaledata.map((item) => {
                                   return (
                                     <tr>
-                                      <td>{item.name}</td>
-                                      <td>{item.description}</td>
+                                      <td>{item.userId}</td>
+                                      <td>{item.productId}</td>
+                                      <td>{item.address}</td>
                                       <td>{item.price}</td>
                                       <td>
                                         <button
@@ -113,10 +115,10 @@ const Order = () => {
                                                 key: "Order",
                                                 type: "Edit",
                                                 id: item._id,
-                                                name: item.name,
-                                                description: item.description,
+                                                userId: item.userId,
+                                                address: item.address,
+                                                productId: item.productId,
                                                 price: item.price,
-                                                image: item.image,
                                               },
                                             })
                                           }
@@ -144,7 +146,7 @@ const Order = () => {
                     </div>
                   </div>
                 </section>
-                <div className="container-wrapped">
+                {/* <div className="container-wrapped">
                   <button
                     type="button"
                     className="btn btn-info"
@@ -162,7 +164,7 @@ const Order = () => {
                   >
                     + Add Item
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -22,6 +22,9 @@ function AddItem() {
   const [estnamestate, setEstnamestate] = useState("");
   const [estcitystate, setEstcitystate] = useState("");
   const [estLocalitystate, setEstLocalitystate] = useState("");
+  const [productIdstate, setProductIdstate] = useState("");
+  const [userIdstate, setUserIdstate] = useState("");
+  const [addresstate, setAddresstate] = useState("");
 
   const route = useRouter();
 
@@ -32,7 +35,7 @@ function AddItem() {
       setDescriptionstate(description);
       setPricestate(price);
       setImg(image);
-    } else {
+    } else if (route.query.key === "Doctor") {
       const {
         name,
         specialization,
@@ -65,6 +68,12 @@ function AddItem() {
       setEstnamestate(Estname);
       setEstcitystate(Estcity);
       setEstLocalitystate(Estlocality);
+    } else {
+      const { id, userId, address, productId, price } = route.query;
+      setUserIdstate(userId);
+      setAddresstate(address);
+      setProductIdstate(productId);
+      setPricestate(price);
     }
   }, []);
 
@@ -184,7 +193,15 @@ function AddItem() {
   const estlocality = (e) => {
     setEstLocalitystate(e.target.value);
   };
-
+  const productId = () => {
+    setProductIdstate(e.target.value);
+  };
+  const userId = () => {
+    setUserIdstate(e.target.value);
+  };
+  const address = () => {
+    setAddresstate(e.target.value);
+  };
   const saveDoctoreItem = async () => {
     console.log("route.query.type ::", route.query.type);
     if (route.query.type === "Add") {
@@ -258,6 +275,34 @@ function AddItem() {
       } catch (error) {
         console.log("error::", error.message);
       }
+    }
+  };
+
+  const saveorderData = async () => {
+    let bodyData = {
+      id: route.query.id,
+      price: pricestate,
+      address: addresstate,
+      userId: userIdstate,
+      productId: productIdstate,
+    };
+    console.log("boyData::", bodyData);
+    try {
+      const response = await fetch("http://localhost:4585/user/order", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Content-Length": "<calculated when request is sent>",
+        },
+        body: JSON.stringify(bodyData),
+      });
+      let responseJSon = await response.json();
+      console.log("responseJSon :::", JSON.stringify(responseJSon));
+      if (response.status === 200) {
+        route.push("/Admin/" + route.query.key);
+      }
+    } catch (error) {
+      console.log("error ::", error);
     }
   };
 
@@ -401,7 +446,7 @@ function AddItem() {
                 </div>
                 <br />
               </div>
-            ) : (
+            ) : route.query.key === "Doctor" ? (
               <div className="wrapper">
                 <div style={{ marginTop: 10 }}>
                   <span style={{ fontWeight: "500", fontSize: 20 }}>
@@ -714,6 +759,117 @@ function AddItem() {
                     className="btn btn-primary"
                     style={{ paddingLeft: 20, paddingRight: 20 }}
                     onClick={() => saveDoctoreItem()}
+                  >
+                    Save
+                  </button>
+                </div>
+                <br />
+              </div>
+            ) : (
+              <div className="wrapper">
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter ProductId
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter ProductId"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={productIdstate}
+                    onChange={productId}
+                    // setNamestate(text)}
+                    // onChange={(e) =>
+                    //   console.log("e:::", JSON.stringify(e.target.value))
+                    // }
+                  />
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter UserId
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter UserId"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={userIdstate}
+                    onChange={userId}
+                  />
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter Address
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter Address"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={addresstate}
+                    onChange={address}
+                  />
+                </div>
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter Price
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter Price"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={pricestate}
+                    onChange={price}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    flexDirection: "row",
+                    display: "flex",
+                    marginTop: 30,
+                  }}
+                >
+                  <button
+                    style={{ marginRight: 20 }}
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => route.push("/Admin/" + route.query.key)}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    style={{ paddingLeft: 20, paddingRight: 20 }}
+                    onClick={() => saveorderData()}
                   >
                     Save
                   </button>
