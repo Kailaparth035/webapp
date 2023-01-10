@@ -29,6 +29,14 @@ const Drawer = (props) => {
       >
         Order
       </button>
+      <button
+        type="button"
+        className="btn btn-primary"
+        style={{ width: 245, borderRadius: 0 }}
+        onClick={() => props.blog()}
+      >
+        Blog
+      </button>
 
       {/* <button
         type="button"

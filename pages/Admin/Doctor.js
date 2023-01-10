@@ -57,6 +57,7 @@ function Doctor() {
             product={() => route.push("/Admin/Product")}
             doctor={() => route.push("/Admin/Doctor")}
             order={() => route.push("/Admin/Order")}
+            blog={() => route.push("/Admin/Blog")}
             key={route.asPath}
           />
         </div>

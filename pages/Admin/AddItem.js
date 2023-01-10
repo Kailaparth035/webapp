@@ -25,6 +25,7 @@ function AddItem() {
   const [productIdstate, setProductIdstate] = useState("");
   const [userIdstate, setUserIdstate] = useState("");
   const [addresstate, setAddresstate] = useState("");
+  const [titlestate, setTitlestate] = useState("");
 
   const route = useRouter();
 
@@ -68,12 +69,18 @@ function AddItem() {
       setEstnamestate(Estname);
       setEstcitystate(Estcity);
       setEstLocalitystate(Estlocality);
-    } else {
+    } else if (route.query.key === "Order") {
       const { id, userId, address, productId, price } = route.query;
       setUserIdstate(userId);
       setAddresstate(address);
       setProductIdstate(productId);
       setPricestate(price);
+    } else {
+      const { id, title, image, description } = route.query;
+      console.log("title :::", title);
+      setTitlestate(title);
+      setDescriptionstate(description);
+      setImg(image);
     }
   }, []);
 
@@ -193,14 +200,20 @@ function AddItem() {
   const estlocality = (e) => {
     setEstLocalitystate(e.target.value);
   };
-  const productId = () => {
+  const productId = (e) => {
     setProductIdstate(e.target.value);
   };
-  const userId = () => {
+  const userId = (e) => {
     setUserIdstate(e.target.value);
   };
-  const address = () => {
+  const address = (e) => {
     setAddresstate(e.target.value);
+  };
+  const title = (e) => {
+    setTitlestate(e.target.value);
+  };
+  const image = (e) => {
+    setImg(e.target.value);
   };
   const saveDoctoreItem = async () => {
     console.log("route.query.type ::", route.query.type);
@@ -306,6 +319,59 @@ function AddItem() {
     }
   };
 
+  const saveBlogData = async () => {
+    if (route.query.type === "Add") {
+      let bodyData = {
+        title: titlestate,
+        image: img,
+        description: descriptionstate,
+      };
+      console.log("boyData::", bodyData);
+      try {
+        const response = await fetch("http://localhost:4585/user/blog", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Content-Length": "<calculated when request is sent>",
+          },
+          body: JSON.stringify(bodyData),
+        });
+        let responseJSon = await response.json();
+        console.log("responseJSon :::", JSON.stringify(responseJSon));
+        if (response.status === 200) {
+          route.push("/Admin/" + route.query.key);
+        }
+      } catch (error) {
+        console.log("error ::", error);
+      }
+    } else {
+      let bodyData = {
+        id: route.query.id,
+        title: titlestate,
+        image: img,
+        description: descriptionstate,
+      };
+      console.log("boyData::", bodyData);
+      try {
+        const response = await fetch("http://localhost:4585/user/blog", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Content-Length": "<calculated when request is sent>",
+          },
+          body: JSON.stringify(bodyData),
+        });
+        let responseJSon = await response.json();
+        console.log("responseJSon :::", JSON.stringify(responseJSon));
+        if (response.status === 200) {
+          route.push("/Admin/" + route.query.key);
+        }
+      } catch (error) {
+        console.log("error ::", error);
+      }
+    }
+  };
+
   return (
     <div className="container-wrapped">
       <div className="row">
@@ -317,6 +383,7 @@ function AddItem() {
             product={() => route.push("/Admin/Product")}
             doctor={() => route.push("/Admin/Doctor")}
             order={() => route.push("/Admin/Order")}
+            blog={() => route.push("/Admin/Blog")}
           />
         </div>
         <div className="col-10">
@@ -765,7 +832,7 @@ function AddItem() {
                 </div>
                 <br />
               </div>
-            ) : (
+            ) : route.query.key === "Order" ? (
               <div className="wrapper">
                 <div style={{ marginTop: 10 }}>
                   <span style={{ fontWeight: "500", fontSize: 20 }}>
@@ -870,6 +937,98 @@ function AddItem() {
                     className="btn btn-primary"
                     style={{ paddingLeft: 20, paddingRight: 20 }}
                     onClick={() => saveorderData()}
+                  >
+                    Save
+                  </button>
+                </div>
+                <br />
+              </div>
+            ) : (
+              <div className="wrapper">
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter Title
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter Title"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={titlestate}
+                    onChange={title}
+                    // setNamestate(text)}
+                    // onChange={(e) =>
+                    //   console.log("e:::", JSON.stringify(e.target.value))
+                    // }
+                  />
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter Image
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter Image"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={img}
+                    onChange={image}
+                  />
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                  <span style={{ fontWeight: "500", fontSize: 20 }}>
+                    Enter Description
+                  </span>
+                  <br />
+                  <input
+                    placeholder="Enter Description"
+                    style={{
+                      marginTop: 7,
+                      borderRadius: 3,
+                      width: 300,
+                      height: 40,
+                      borderColor: "#7e7e7e",
+                      borderWidth: 1,
+                    }}
+                    value={descriptionstate}
+                    onChange={description}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    flexDirection: "row",
+                    display: "flex",
+                    marginTop: 30,
+                  }}
+                >
+                  <button
+                    style={{ marginRight: 20 }}
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => route.push("/Admin/" + route.query.key)}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    style={{ paddingLeft: 20, paddingRight: 20 }}
+                    onClick={() => saveBlogData()}
                   >
                     Save
                   </button>
