@@ -93,6 +93,8 @@ const Order = () => {
                                   <th>UserId</th>
                                   <th>Address</th>
                                   <th>Price</th>
+                                  <th>Status</th>
+                                  <th>Update Status</th>
                                   <th>Edit</th>
                                   <th>Delet</th>
                                 </tr>
@@ -105,6 +107,34 @@ const Order = () => {
                                       <td>{item.productId}</td>
                                       <td>{item.address}</td>
                                       <td>{item.price}</td>
+                                      {item.status === 0 ? (
+                                        <td style={{ color: "red" }}>Closed</td>
+                                      ) : (
+                                        <td style={{ color: "green" }}>
+                                          Pending
+                                        </td>
+                                      )}
+                                      <td>
+                                        <button
+                                          type="button"
+                                          className="btn btn-link"
+                                          onClick={() =>
+                                            route.push({
+                                              pathname: "/Admin/Updatestatus",
+                                              query: {
+                                                key: "Order",
+                                                id: item._id,
+                                                status:
+                                                  item.status === 0
+                                                    ? "Closed"
+                                                    : "Pending",
+                                              },
+                                            })
+                                          }
+                                        >
+                                          Update Status
+                                        </button>
+                                      </td>
                                       <td>
                                         <button
                                           type="button"

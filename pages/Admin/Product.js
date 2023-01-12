@@ -92,6 +92,7 @@ const Product = () => {
                                   <th>Product Name</th>
                                   <th>Description</th>
                                   <th>Price</th>
+                                  <th>Image</th>
                                   <th>Edit</th>
                                   <th>Delet</th>
                                 </tr>
@@ -103,6 +104,7 @@ const Product = () => {
                                       <td>{item.name}</td>
                                       <td>{item.description}</td>
                                       <td>{item.price}</td>
+                                      <td>{item.image[0]}</td>
                                       <td>
                                         <button
                                           type="button"
@@ -117,7 +119,7 @@ const Product = () => {
                                                 name: item.name,
                                                 description: item.description,
                                                 price: item.price,
-                                                image: item.image,
+                                                image: item.image[0],
                                               },
                                             })
                                           }
