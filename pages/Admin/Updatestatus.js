@@ -2,87 +2,58 @@ import React, { useEffect, useState } from "react";
 import { tabale_data } from "../../Constant/Array";
 import Drawer from "../../component/Drawer";
 import { useRouter } from "next/router";
+import Select from "react-select";
+import { order_status } from "../../Constant/Array";
+import styles from "../../styles/updateStatus.module.css";
 
 function Updatestatus() {
-  const [statusstate, setStatusstate] = useState("");
+  const [statusstate, setStatusstate] = useState({ value: "", label: "" });
   const route = useRouter();
 
   useEffect(() => {
-    const { id, status } = route.query;
+    const { id, status, value } = route.query;
     console.log("id :::", id);
-    console.log("status :::", status);
+    // console.log("status :::", status);
 
-    setStatusstate(status);
+    setStatusstate({ value: value, label: status });
   }, []);
 
   const saveProductData = async () => {
     let Closed = "Closed";
     let Pending = "Pending";
     let bodyData;
-    if (statusstate.toLocaleLowerCase() === Closed.toLocaleLowerCase()) {
-      bodyData = {
-        id: route.query.id,
-        status: 0,
-      };
-      try {
-        const response = await fetch("http://localhost:4585/user/orderstatus", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Content-Length": "<calculated when request is sent>",
-            Accept: "*/*",
-          },
-          body: JSON.stringify(bodyData),
-        });
-        let responseJson = response.json();
-        console.log("resp[onse :::", response);
-        if (response.status === 200) {
-          alert("Order  Successfully Update");
-          route.push("/Admin/Order");
-        } else {
-          alert(response.message);
-        }
-      } catch (error) {
-        console.log("error:::", error);
+    bodyData = {
+      id: route.query.id,
+      status: statusstate.value,
+    };
+    try {
+      const response = await fetch("http://localhost:4585/user/orderstatus", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Content-Length": "<calculated when request is sent>",
+          Accept: "*/*",
+        },
+        body: JSON.stringify(bodyData),
+      });
+      let responseJson = response.json();
+      console.log("resp[onse :::", response);
+      if (response.status === 200) {
+        alert("Order  Successfully Update");
+        route.push("/Admin/Order");
+      } else {
+        alert(response.message);
       }
-    } else if (
-      statusstate.toLocaleLowerCase() === Pending.toLocaleLowerCase()
-    ) {
-      bodyData = {
-        id: route.query.id,
-        status: 1,
-      };
-      try {
-        const response = await fetch("http://localhost:4585/user/orderstatus", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Content-Length": "<calculated when request is sent>",
-            Accept: "*/*",
-          },
-          body: JSON.stringify(bodyData),
-        });
-        let responseJson = response.json();
-        console.log("resp[onse :::", response);
-        if (response.status === 200) {
-          alert("Order  Successfully Update");
-          route.push("/Admin/Order");
-        } else {
-          alert(response.message);
-        }
-      } catch (error) {
-        console.log("error:::", error);
-      }
-    } else {
-      alert("Plese enter proper status");
+    } catch (error) {
+      console.log("error:::", error);
     }
 
     setStatusstate("");
   };
 
-  const Status = (e) => {
-    console.log("e :::", e);
-    setStatusstate(e.target.value);
+  const changeHandler = (value) => {
+    console.log(value);
+    setStatusstate({ value: value.value, label: value.label });
   };
 
   return (
@@ -110,7 +81,7 @@ function Updatestatus() {
               <div style={{ marginTop: 10 }}>
                 <span style={{ fontWeight: "500", fontSize: 20 }}>Status</span>
                 <br />
-                <input
+                {/* <input
                   placeholder="Enter Status"
                   style={{
                     marginTop: 7,
@@ -126,16 +97,25 @@ function Updatestatus() {
                   // onChange={(e) =>
                   //   console.log("e:::", JSON.stringify(e.target.value))
                   // }
+                /> */}
+                <Select
+                  options={order_status}
+                  value={statusstate}
+                  onChange={changeHandler}
+                  className={styles.dropdown}
+                  placeholder="Status"
                 />
-                <br />
-                <span>(Enter status only "Pending" and "Closed")</span>
+
+                <div style={{ marginTop: 10 }}>
+                  <span>(Enter status only "Pending" and "Closed")</span>
+                </div>
               </div>
 
               <div
                 style={{
                   flexDirection: "row",
                   display: "flex",
-                  marginTop: 30,
+                  marginTop: 10,
                 }}
               >
                 <button

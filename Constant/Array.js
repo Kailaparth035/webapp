@@ -272,3 +272,8 @@ export const doctor_list = [
     Estlocality: "Gujrat",
   },
 ];
+
+export const order_status = [
+  { value: 1, label: "Pending" },
+  { value: 0, label: "Closed" },
+];

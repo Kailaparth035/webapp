@@ -128,6 +128,7 @@ const Order = () => {
                                                   item.status === 0
                                                     ? "Closed"
                                                     : "Pending",
+                                                value: item.status,
                                               },
                                             })
                                           }
