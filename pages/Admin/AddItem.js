@@ -3,6 +3,7 @@ import { tabale_data } from "../../Constant/Array";
 import Drawer from "../../component/Drawer";
 import { useRouter } from "next/router";
 
+
 function AddItem() {
   const [namestate, setNamestate] = useState("");
   const [descriptionstate, setDescriptionstate] = useState("");
@@ -148,7 +149,7 @@ function AddItem() {
     setNamestate(e.target.value);
   };
   const description = (e) => {
-    // console.log("e :::", e.target.value);
+    // console.log("e :::",e.target.value);
     setDescriptionstate(e.target.value);
   };
   const price = (e) => {
@@ -372,6 +373,12 @@ function AddItem() {
     }
   };
 
+  const selectImage =async () => {
+    // alert("selectImage");
+    // const widget = await ReactImagePicker.;
+    // console.log("Imagepicker ::", Imagepicker);
+  };
+
   return (
     <div className="container-wrapped">
       <div className="row">
@@ -470,6 +477,7 @@ function AddItem() {
                       style={{
                         marginTop: 7,
                       }}
+                      onClick={() => selectImage()}
                       type="button"
                       className="btn btn-secondary btn-lg btn-block"
                     >
@@ -482,7 +490,9 @@ function AddItem() {
                           fontSize: 20,
                         }}
                       >
-                        {img !== "" ? img : "No file Selected"}
+                        {img !== "" && img !== undefined
+                          ? img
+                          : "No file Selected"}
                       </span>
                     </div>
                   </div>
