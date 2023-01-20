@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { tabale_data } from "../../Constant/Array";
+// import { tabale_data } from "../../Constant/Array";
 import Drawer from "../../component/Drawer";
 import { useRouter } from "next/router";
 
 const Product = () => {
   const [tabaledata, setTabaledata] = useState([]);
+  const [alltabaledata, setAlltabaledata] = useState([]);
   const [page, setPage] = useState(1);
   const route = useRouter();
 
@@ -13,27 +14,35 @@ const Product = () => {
   }, []);
 
   const productApicall = async () => {
-    let bodyData = {
-      limit: 1,
-      page: page,
-      search: "",
-      consultionFees: "",
-      rating: 0,
-    };
+    // let bodyData = {
+    //   limit: 1,
+    //   page: page,
+    //   search: "",
+    //   consultionFees: "",
+    //   rating: 0,
+    // };
     try {
-      const response = await fetch("http://localhost:4585/user/product/get", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Content-Length": "<calculated when request is sent>",
-        },
-        body: JSON.stringify(bodyData),
+      const response = await fetch("http://localhost:4585/user/product", {
+        method: "GET",
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   "Content-Length": "<calculated when request is sent>",
+        // },
+        // body: JSON.stringify(bodyData),
       });
 
       let responseJson = await response.json();
       console.log("response  product list ::;", responseJson);
+
       if (response.status === 200) {
-        setTabaledata(responseJson.data.product_data);
+        let temp = [];
+        responseJson.data.map((mappItem, mapIndex) => {
+          if (mapIndex < 1) {
+            temp.push(mappItem);
+          }
+        });
+        setTabaledata([...temp]);
+        setAlltabaledata(responseJson.data);
       }
     } catch (error) {
       console.log(error.message);
@@ -115,6 +124,8 @@ const Product = () => {
       console.log(error.message);
     }
   };
+
+  console.log("tabaledata.length ::", tabaledata.length);
   return (
     <div className="container-wrapped">
       <div className="row">
@@ -251,7 +262,7 @@ const Product = () => {
                       type="button"
                       class="btn btn-secondary"
                       onClick={() => pagination_next()}
-                      disabled={page < tabale_data.length ? false : true}
+                      disabled={page < alltabaledata.length ? false : true}
                     >
                       <span style={{ textAlign: "center" }}>Next</span>
                     </button>
@@ -268,7 +279,7 @@ const Product = () => {
                         query: {
                           key: "Product",
                           type: "Add",
-                          length: tabaledata.length,
+                          length: alltabaledata,
                         },
                       })
                     }
